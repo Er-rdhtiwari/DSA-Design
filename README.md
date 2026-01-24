@@ -1,560 +1,673 @@
-Below is a **14-day DSA + System Design (HLD) + LLD** interview prep track with **day-wise copy-paste prompts**, plus a **daily strategy** so you don’t deviate.
+## Day 1 to Day 5 (Copy-paste prompts)
 
----
-
-## Daily strategy (best way to use it, assuming a NEW chat every day)
-
-### Daily routine (same every day)
-
-1. **Paste “State Pack”** (2 mins)
-2. **Paste Day X Prompt** (this will generate your plan + tasks for the day)
-3. **Do DSA first** (keeps brain sharp, prevents design rabbit holes)
-4. **Then HLD** (write 1–2 page design notes)
-5. **Then LLD** (class diagram + code skeleton + 2–3 tests)
-6. **Closeout** (capture interview bullets + tomorrow’s focus)
-
-### State Pack (paste at start of every day’s new chat)
+### Day 1 — Baseline + JD mapping (Arrays/Hashing + Fault-tolerant design + FastAPI contract)
 
 ```text
-DAY X — DSA + HLD + LLD
+You are my JPMorgan Lead Software Engineer (Python + AI/ML) interview coach.
+JD focus: AI-native SDLC agent fabric, multi-agent orchestration (LangGraph/A2A/MCP), RAG + vector DB, Python/FastAPI/Pydantic, AWS (EKS/Lambda/S3/Terraform), CI/CD, observability, tool integrations (Jira/Git/Terraform).
 
-Time available today: <e.g., 2.5 hours>
-Target: product + startup interviews (DSA + HLD + LLD)
+Rules for today:
+- Be strict and interview-like. Ask clarifying questions where needed.
+- For DSA: do NOT reveal solution immediately. Let me attempt first.
+- For HLD/LLD: produce clear checklists + diagram + API contracts + failure modes.
+- Output must be structured exactly in these sections:
+  (A) DSA Round
+  (B) System Design (HLD) Round
+  (C) Low-Level Design (LLD) Round
+  (D) Code Review Mini-Round (10 mins)
+  (E) Behavioral (STAR)
+  (F) Recap + Homework
 
-Yesterday summary (if Day>1):
-- DSA: solved <problem names/patterns>
-- HLD: designed <system>
-- LLD: implemented <module>
-- Gaps/bugs: <...>
+(A) DSA Round (Arrays/Hashing)
+1) Give me 2 problems:
+   - Q1 easy (hashmap/set)
+   - Q2 medium (hashmap + prefix/suffix or frequency)
+2) For each: provide constraints + 2 sample tests.
+3) Timebox: 25 minutes per medium.
+4) After my attempt, provide:
+   - optimal approach + complexity
+   - edge cases checklist
+   - “pattern recognition” triggers (how to spot hashing)
+   - common mistakes in Python (mutability, default dict, off-by-one)
+   - 5 extra testcases to validate.
 
-Today constraints:
-- No over-exploration.
-- Finish at least: 1 medium DSA + 1 HLD design + 1 LLD skeleton + 2 tests.
-```
+(B) System Design (HLD) Round — “Agent Gateway” (multi-tenant)
+Design an “AI Agent Gateway” that routes requests to agents (docgen/testgen/codegen/observability) and supports:
+- multi-tenant isolation, RBAC, audit logs
+- tool calling (Jira/Git/Terraform) via connectors
+- RAG (vector DB) for grounding in internal docs
+- streaming responses, rate limits, budgets (tokens/cost)
+- deployments on AWS (EKS; optionally Lambda for async tasks)
+Deliverables:
+1) Requirements: functional + NFR (latency p95, availability, compliance)
+2) High-level architecture diagram (ASCII)
+3) Core services & responsibilities (Gateway, Orchestrator, RAG service, Tool Connectors, Observability)
+4) Data stores: which DB for what (relational vs KV vs vector)
+5) APIs: at least 6 endpoints (run, status, cancel, feedback, ingest, health)
+6) Failure modes + mitigations: retries/backoff, circuit breaker, timeouts, idempotency, DLQ
+7) Security: authn/authz, secrets, prompt logging redaction/PII, least privilege
+8) Scaling & cost: caching, batching, autoscaling, quotas, tenant throttling
+9) Observability: traces/metrics/log schema (correlation_id)
+10) “MVP → Production” plan in phases.
 
-### Non-deviation checkpoints (must be TRUE daily)
-
-* ✅ 1 **medium** DSA solved + explained + final code saved
-* ✅ 1 HLD design doc (requirements → API → components → scaling → tradeoffs)
-* ✅ 1 LLD design + skeleton + **2 tests**
-* ✅ 10 “I can explain” bullets for interviews
-
-If any is missing → **tomorrow begins by fixing it** before new topics.
-
----
-
-## 14-day roadmap (what you’ll cover)
-
-**DSA patterns:** Arrays/HashMap → Two pointers → Sliding window → Stack → Binary search → Linked list → Trees → Heap → Graph → Union-Find → Backtracking → DP → Mixed revision → Mock interviews
-**HLD:** fundamentals → caching → storage → messaging → partitioning → reliability → search → stream/analytics → auth/tenancy → observability → rate limiting → case studies
-**LLD:** SOLID + patterns → Parking Lot → LRU cache → PubSub → Rate limiter → Elevator → Notification → Scheduler → API Gateway → Auth/RBAC → Logging/tracing → “Design a component” under constraints → end-to-end LLD in case studies
-
----
-
-# Day-wise copy-paste prompts (Day 1 → Day 14)
-
-> Paste **State Pack** first, then paste the Day prompt.
-
----
-
-## Day 1 Prompt
-
-```text
-Day 1 — Baseline: DSA + HLD Fundamentals + LLD SOLID
-
-You are my interview preparation coach. Keep me strictly on-scope. No over-exploration.
-
-A) DSA (45–60 min)
-- Topic: Arrays + HashMap patterns (frequency, prefix sums, duplicates)
-- Give me 1 easy + 1 medium problem (LeetCode-style) that match this pattern.
-For each:
-  1) Restate problem + constraints
-  2) Brute force idea
-  3) Optimal approach + why
-  4) Dry run on example
-  5) Final Python solution
-  6) 3 interview follow-ups
-
-B) HLD (45–60 min)
-- Teach HLD fundamentals: requirements, constraints, capacity estimates, SLA, bottlenecks.
-- Do a mini design: “Design a URL Shortener (tiny scope)” focusing on:
-  - APIs
-  - data model
-  - core components
-  - scaling plan
-  - tradeoffs
-
-C) LLD (45–60 min)
-- Teach SOLID in interview language + 2 common violations
-- LLD task: Design a thread-safe RateLimiter interface (Token Bucket or Leaky Bucket)
+(C) Low-Level Design (LLD) Round — FastAPI + Pydantic contracts
+Create:
+- Pydantic models: AgentRunRequest, AgentRunResponse, ToolCall, ToolResult, ErrorModel
+- Streaming option: SSE (server-sent events) payload model
+- Validation rules: tenant_id required, max_input_size, allowed_agent_types enum
+- Correlation IDs: middleware approach
+- Retry policy object + timeout config
 Provide:
-  - classes/interfaces
-  - edge cases
-  - concurrency strategy
-  - short Python skeleton + 2 unit tests
+1) class/interface design (AgentRunner, Orchestrator, ToolAdapter)
+2) code skeletons (FastAPI router + dependency injection)
+3) structured error handling strategy (HTTP codes + error codes)
+4) unit test plan (pytest): validation, timeouts, idempotency, tool failures.
 
-D) Closeout (must output)
-- 10 “I can explain in interviews” bullets from today
-- 5 common mistakes to avoid tomorrow
+(D) Code Review Mini-Round (10 mins)
+Give me a short snippet (20–40 lines) that contains:
+- at least 4 issues (hardcoded secret, missing timeouts, bad logging, missing validation).
+Ask me to point them out; then show the ideal review comments.
+
+(E) Behavioral (STAR)
+Ask me 4 lead-level questions:
+- mentoring, conflict, ownership, incident/postmortem.
+After my answers, refine them into crisp 60–90 sec STAR responses.
+
+(F) Recap + Homework
+- 1-page checklist to revise tomorrow
+- 2 LC problems as homework mapped to today’s patterns
+- 5 “JPMC-style follow-ups” I should practice for this system.
 ```
 
----
-
-## Day 2 Prompt
+### Day 2 — Sliding Window + RAG system (vector DB + grounding) + schema LLD
 
 ```text
-Day 2 — Two Pointers + Caching HLD + LLD Parking Lot
+You are my JPMorgan Lead Python + AI/ML interview coach (same JD).
+Follow the same strict structure and rules as Day 1.
 
-A) DSA
-- Topic: Two pointers (pair sum, remove duplicates, container/water patterns)
-- Give 1 easy + 1 medium; same teaching structure (brute→optimal→dry run→code).
+(A) DSA Round (Sliding Window / Two Pointers)
+1) Give:
+   - Q1: classic sliding window (easy/medium)
+   - Q2: harder window with constraints (distinct count / min window / at most K)
+2) I attempt first. Afterward, give:
+   - brute → optimal progression
+   - invariant explanation (what stays true in the window)
+   - complexity + edge cases
+   - common pitfalls (shrinking logic, counters)
+   - 6 testcases including extremes.
 
-B) HLD
-- Topic: Caching (client/server/CDN), cache invalidation, TTL, cache-aside vs write-through.
-- Mini design: “Design a Profile Service + Cache” (read-heavy).
-Include: API, DB choice, cache strategy, invalidation, failure modes.
+(B) HLD — “RAG Knowledge Service” for SDLC agents
+Design a RAG service that answers ONLY from approved corp docs and supports:
+- ingestion pipeline: load → chunk → embed → index
+- hybrid retrieval (keyword + vector) + rerank (conceptual)
+- metadata filters: tenant_id, repo, docType, timestamp
+- strict grounding + citation support
+- handling updates: re-index, versioning, tombstones, dedup
+Deliverables:
+1) Data flow: ingestion vs query flow (ASCII)
+2) Chunking strategy choices (heading-based vs fixed) + overlap rationale
+3) Vector DB choice tradeoffs (latency, filtering, scaling)
+4) Query pipeline steps: rewrite → retrieve → rerank → assemble → generate
+5) Guardrails: “answer unknown if not found”, hallucination control
+6) Evaluation: retrieval metrics (Recall@K), answer quality rubric, regression tests
+7) Ops: monitoring (retrieval latency, hit rate, chunk count), cost controls.
 
-C) LLD
-- Design Parking Lot (classic LLD).
-Include:
-  - requirements + assumptions
-  - classes + relationships
-  - patterns used
-  - concurrency notes
-  - minimal Python skeleton + 2 tests
-
-D) Closeout bullets + next-day focus
-```
-
----
-
-## Day 3 Prompt
-
-```text
-Day 3 — Sliding Window + Storage HLD + LLD LRU Cache
-
-A) DSA
-- Topic: Sliding window (longest substring, max sum k, at most K distinct).
-- 1 easy + 1 medium with full explanation + code.
-
-B) HLD
-- Topic: Storage fundamentals (SQL vs NoSQL), indexing, read/write patterns, OLTP vs OLAP.
-- Mini design: “Design an Event Logging Store” (append-heavy + query by time).
-Include: schema, indexes, partition strategy.
-
-C) LLD
-- Implement LRU Cache (O(1)).
+(C) LLD — schemas + interfaces
 Provide:
-  - class design
-  - why hashmap + doubly linked list
-  - thread-safety option
-  - Python implementation + 3 tests
+- Pydantic models for DocumentMeta, Chunk, EmbeddingRecord, RetrievalRequest/Response
+- Vector schema: id, embedding, text, metadata fields, tenant partitioning
+- Interfaces: Chunker, Embedder, IndexWriter, Retriever, Reranker
+- Pseudocode for retrieve() + context assembly (ordering, truncation)
+- Test strategy: golden queries + drift detection.
 
-D) Closeout bullets
+(D) Code Review Mini-Round
+Short snippet showing a buggy retrieval (wrong filters, leaking tenant data).
+I identify issues; you provide corrected version.
+
+(E) Behavioral
+Ask 3 questions on “data privacy + compliance” and “handling ambiguity in requirements.”
+
+(F) Recap + Homework
+- 1-page RAG cheat sheet (pipeline + knobs)
+- 2 DSA problems (sliding window)
+- 5 follow-up design questions (scale, compliance, freshness).
 ```
 
----
-
-## Day 4 Prompt
+### Day 3 — Stack/Queue + Multi-agent orchestration (LangGraph/A2A) + state machine LLD
 
 ```text
-Day 4 — Stack/Monotonic + Messaging HLD + LLD PubSub
+Act as my JPMorgan Lead AI-native SDLC interview coach (same JD).
+Keep it strict, structured, and interactive.
 
-A) DSA
-- Topic: Stack patterns (valid parentheses, next greater element, monotonic stack).
-- 1 easy + 1 medium with dry run + code.
+(A) DSA Round (Stack/Queue)
+1) Give:
+   - Q1: monotonic stack OR parentheses validation (easy)
+   - Q2: medium (next greater element / decode string / sliding window max)
+2) After my attempt: optimal solution + stack invariant + pitfalls + tests.
 
-B) HLD
-- Topic: Messaging (queue vs stream), at-least-once vs exactly-once, retries, idempotency.
-- Mini design: “Design an Email/Notification Pipeline”.
-Include: producer/consumer, DLQ, retries, dedupe, observability.
+(B) HLD — “Multi-Agent Orchestrator”
+Design orchestrator for planner → executor → verifier agents with:
+- shared typed state, branching, loops, retries
+- tool calling policy and approvals (human-in-loop)
+- timeouts, cancellation, partial results
+- guardrails: max steps, budget limit, safe fallbacks
+- execution modes: sync vs async (queue-based)
+Deliverables:
+1) Orchestration patterns comparison: single-agent vs planner-executor vs graph
+2) State design: what goes into state (inputs, retrieved context, tool outputs, scores)
+3) Reliability: retry/backoff, idempotency, DLQ, “stuck workflow” detection
+4) Security: tool permissions per tenant/user role
+5) Observability: per-step trace + step metrics + error taxonomy.
 
-C) LLD
-- Design PubSub system.
-Include:
-  - topics, subscribers, delivery guarantees
-  - interfaces
-  - threading model
-  - Python skeleton + 2 tests
-
-D) Closeout bullets
-```
-
----
-
-## Day 5 Prompt
-
-```text
-Day 5 — Binary Search + Partitioning HLD + LLD Consistent Hashing
-
-A) DSA
-- Topic: Binary search (first/last, rotated array, answer space binary search).
-- 1 easy + 1 medium with code.
-
-B) HLD
-- Topic: Partitioning/sharding, consistent hashing, hot partitions.
-- Mini design: “Design a Distributed Cache / KV store (HLD level)”
-Include: partitioning, replication, rebalancing.
-
-C) LLD
-- Implement ConsistentHashRing module (LLD component).
+(C) LLD — State machine / LangGraph-like graph
 Provide:
-  - API: add_node/remove_node/get_node(key)
-  - virtual nodes
-  - tests for stability
+- Pydantic State model (AgentState) and node output models
+- Node interface: run(state) -> state delta
+- Retry policy wrapper + timeout wrapper
+- Example nodes: PlanNode, RetrieveNode, ToolNode, VerifyNode, FinalizeNode
+- Minimal code skeleton (not full project) showing how nodes connect + branching.
 
-D) Closeout bullets
+(D) Code Review Mini-Round
+Snippet with bad retry loop / missing timeouts / non-idempotent tool call.
+I review; you show ideal fix.
+
+(E) Behavioral
+Ask: “Tell me about a time you designed a framework/platform used by others.”
+
+(F) Recap + Homework
+- Orchestrator checklist + failure modes list
+- 2 DSA problems on stack/queue
+- 5 “what-if” questions (agent misbehaves, tool fails, budget exceeded).
+```
+
+### Day 4 — Trees + Tool connectors (Jira/Git/Terraform) + Adapter pattern LLD
+
+```text
+You are my JPMorgan Lead Engineer interview coach (same JD).
+Be strict and cover all subtopics; interactive for DSA.
+
+(A) DSA Round (Trees)
+1) Give:
+   - Q1: traversal/level-order (easy)
+   - Q2: medium (LCA / serialize-deserialize / path sum variant)
+2) After my attempt: recursion vs iterative tradeoffs, complexity, edge cases (nulls, skewed), tests.
+
+(B) HLD — “Tool Connector Layer”
+Design connector service to integrate agents with Jira + GitHub/Bitbucket + Terraform:
+- auth: OAuth/token, service accounts, least privilege
+- secret management: AWS Secrets Manager/SSM
+- audit logs: who called what tool and why
+- rate limits + backpressure
+- sandbox mode vs production mode for Terraform actions
+- PR workflow: create branch, commit, open PR, request reviewers
+Deliverables:
+1) Component diagram + data flow
+2) Tool abstraction model (tool registry, capabilities, permissions)
+3) Failure handling: retries, idempotency, partial commits rollback plan
+4) Security controls: allowlist actions, approval gates, policy-as-code
+5) Observability: tool call latency, error rates, per-tool dashboard metrics.
+
+(C) LLD — Adapter + Policy
+Provide:
+- Interfaces: ToolAdapter, ToolRequest, ToolResponse
+- Concrete adapters: JiraAdapter, GitAdapter, TerraformAdapter
+- Policy engine: checks user role + action type + resource scope
+- Example FastAPI endpoints: /tools/execute, /tools/capabilities
+- Unit tests: mocking external APIs, contract tests, replay tests.
+
+(D) Code Review Mini-Round
+Snippet with insecure webhook verification or hardcoded tokens—review and fix.
+
+(E) Behavioral
+Ask: “How do you mentor juniors and enforce engineering standards without slowing delivery?”
+
+(F) Recap + Homework
+- Tool integration checklist (auth, rate limit, audit, safety)
+- 2 tree problems as homework
+- 5 follow-up questions on compliance + approvals.
+```
+
+### Day 5 — Graphs + Event-driven SDLC workflow + Idempotency/Retry LLD
+
+```text
+Act as my JPMorgan Lead Engineer interview coach (same JD).
+Strict interview format.
+
+(A) DSA Round (Graphs BFS/DFS)
+1) Give:
+   - Q1: BFS/DFS basic (islands / connected components)
+   - Q2: medium (topological sort / shortest path in unweighted / clone graph)
+2) After my attempt: visited rules, recursion depth pitfalls, complexity, 6 testcases.
+
+(B) HLD — “Event-driven SDLC Workflow”
+Design SDLC automation workflow:
+TicketCreated → DesignDocGenerated → PRCreated → TestsGenerated → CITriggered → DeployCanary → Observe → Rollback/Promote.
+Use event-driven approach conceptually (EventBridge/SQS/Step Functions).
+Deliverables:
+1) Events list (name, schema, producer/consumer)
+2) Exactly-once-ish handling: idempotency keys + dedupe store
+3) Workflow state storage: relational vs KV
+4) Retry + DLQ strategy; poison message handling
+5) Concurrency control: avoid double PR creation
+6) Backpressure: queue depth autoscaling signals
+7) Security: event signing, tenant isolation, audit
+8) MVP → Prod plan + runbook outline.
+
+(C) LLD — Idempotency + Retry library
+Provide:
+- Python idempotency decorator/middleware concept
+- Data model for IdempotencyRecord (key, status, response hash, expiry)
+- Retry/backoff policy (jitter), circuit breaker outline
+- FastAPI integration skeleton + unit test plan.
+
+(D) Code Review Mini-Round
+Review a message consumer with duplicate-processing bug.
+
+(E) Behavioral
+Ask: “Tell me about an incident you owned end-to-end and what you changed afterward.”
+
+(F) Recap + Homework
+- Graph cheat sheet
+- 2 graph problems
+- 10 rapid-fire questions on reliability patterns.
 ```
 
 ---
 
-## Day 6 Prompt
+## Day 6 to Day 10 (Copy-paste prompts)
+
+### Day 6 — Heaps/TopK + LLM inference performance (batch/cache/stream) + SSE LLD
 
 ```text
-Day 6 — Linked List + Reliability HLD + LLD Elevator
+You are my JPMorgan Lead AI/ML + Python interview coach (same JD).
+Focus today on performance + cost + latency—like a production system.
 
-A) DSA
-- Topic: Linked list (reverse, cycle detection, merge).
-- 1 easy + 1 medium with code.
+(A) DSA Round (Heap/TopK)
+1) Q1: easy heap/top-k
+2) Q2: medium involving heap + frequency/streaming
+After my attempt: complexity, memory, edge cases, tests, and alternatives (sort vs heap vs quickselect).
 
-B) HLD
-- Topic: Reliability patterns (timeouts, retries, circuit breaker, bulkheads).
-- Mini design: “Design a Payments-like service reliability layer” (conceptual).
-Include: failure modes, retry budget, idempotency keys.
+(B) HLD — “Inference & Serving Layer”
+Design an LLM serving layer that supports:
+- streaming responses (SSE/WebSocket)
+- batching (dynamic batching), concurrency limits
+- caching: prompt cache + response cache (cache keys, TTL, invalidation)
+- rate limits per tenant/user; token/cost budgets
+- model routing (small model vs big model) and fallbacks
+- autoscaling signals; p95 latency SLO
+- safe timeouts; partial responses; cancellation
+Deliverables:
+1) Architecture + request lifecycle
+2) Performance knobs (batch size, max tokens, streaming chunk size)
+3) Cost controls: quotas, budgets, sampling logs, selective tracing
+4) Failure handling: upstream LLM errors, retries policy, circuit breaker
+5) Observability: latency breakdown (queueing vs inference vs network), token usage metrics.
 
-C) LLD
-- Elevator system LLD.
-Include: states, requests, scheduler strategy, concurrency notes, skeleton + 2 tests.
+(C) LLD — Streaming endpoint + cache
+Provide:
+- FastAPI SSE endpoint skeleton with async generator
+- Response event types: token, tool_call, tool_result, final, error
+- Cache key design: tenant + agent + prompt hash + tool config + prompt version
+- Unit tests: streaming, cancellation, cache hit/miss, timeout.
 
-D) Closeout bullets
+(D) Mini PR Review
+Snippet with no timeout or blocking call inside async—fix it.
+
+(E) Behavioral
+Ask 3 questions on “how you optimize costs and justify tradeoffs.”
+
+(F) Recap + Homework
+- 1-page inference optimization checklist
+- 2 heap problems homework
+- 5 follow-up design questions (scale to 10x, multi-region, compliance).
+```
+
+### Day 7 — Greedy/Intervals + CI/CD + Canary/Rollback + config/prompt versioning LLD
+
+```text
+Act as my JPMorgan Lead Engineer interview coach (same JD).
+
+(A) DSA (Intervals/Greedy)
+1) Q1: merge intervals or meeting rooms
+2) Q2: medium greedy scheduling
+After: proof intuition, pitfalls, complexity, tests.
+
+(B) HLD — “CI/CD for Agent Services”
+Design CI/CD pipeline for:
+- Python services (FastAPI) + infra (Terraform) + Helm
+- automated tests: unit, integration, contract, security scans
+- canary deployment and rollback
+- versioning: prompts, tools, agent graphs, RAG index versions
+- environment strategy: dev/stage/prod, feature flags
+Deliverables:
+1) Pipeline stages diagram
+2) Release strategy: blue/green vs canary; when to choose what
+3) Rollback plan including DB/schema migrations strategy
+4) Policy gates: approvals for Terraform apply and prod releases
+5) Observability gates: SLO-based promotion (error rate, p95, token cost).
+
+(C) LLD — Versioned configuration
+Provide:
+- Data models: PromptVersion, AgentGraphVersion, ToolConfigVersion
+- Safe rollout mechanism: feature flag + percentage routing per tenant
+- Example “config resolution” function: (tenant, agent, env) -> effective config
+- Test plan: regression test suite for prompts and tools.
+
+(D) Mini Code Review
+Snippet showing “prompt changes shipped without tests”—review and fix.
+
+(E) Behavioral
+Ask: “How do you ensure quality and speed in a fast-moving platform team?”
+
+(F) Recap + Homework
+- CI/CD + rollout cheat sheet
+- 2 interval/greedy problems homework
+- 8 follow-up questions on release safety.
+```
+
+### Day 8 — DP basics + Observability/Monitoring (LLM + agents) + logging schema LLD
+
+```text
+You are my JPMorgan Lead Engineer interview coach (same JD).
+Today emphasis: monitoring after deployment + “what do you look for once live?”
+
+(A) DSA (DP Basics)
+1) Q1: DP easy (climbing stairs / house robber style)
+2) Q2: DP medium (subset/partition/knapsack-ish)
+After: brute -> memo -> tabulation, state definition, transitions, tests, complexity.
+
+(B) HLD — “Observability for Agent Fabric”
+Design monitoring for:
+- agent workflows (per-step tracing)
+- tool calls (latency/error)
+- RAG retrieval (hit rate, recall proxies)
+- model usage (tokens/cost), hallucination/grounding checks
+- privacy: PII redaction, sampling, retention policy
+Deliverables:
+1) What to log vs never log (privacy)
+2) Metrics catalog (golden signals + AI-specific signals)
+3) Tracing approach (correlation_id, trace_id propagation)
+4) Dashboards: 5 core dashboards + alert rules
+5) Incident runbook outline + postmortem template.
+
+(C) LLD — Logging + tracing schema
+Provide:
+- JSON log schema: timestamp, tenant_id, workflow_id, step_id, model, tokens, latency_ms, outcome, error_code
+- Middleware code skeleton: correlation id injection, structured logger
+- Redaction approach: regex + allowlist fields
+- Unit tests: redaction correctness + log completeness.
+
+(D) Mini Review
+Bad logging snippet with PII leakage—fix it.
+
+(E) Behavioral
+Ask: “How do you handle incidents and communicate with stakeholders?”
+
+(F) Recap + Homework
+- 1-page observability checklist
+- 2 DP problems homework
+- 10 rapid-fire monitoring questions.
+```
+
+### Day 9 — Mixed DSA (timed) + End-to-end “AI-native SDLC” HLD + service boundaries LLD
+
+```text
+Act as my JPMorgan Lead Engineer interview coach (same JD).
+Today is end-to-end integration day.
+
+(A) DSA Timed Round
+- Give me 1 medium from any past pattern, timed 35 mins.
+- After my attempt: optimization, edge cases, tests, and “how to explain in interview”.
+
+(B) HLD — Full “AI-native SDLC Agent Fabric”
+Design complete system:
+Jira issue → plan → retrieve context → generate design doc → create PR → generate tests → run CI → canary deploy → monitor → rollback/promote.
+Must include:
+- multi-tenant RBAC and audit trails
+- tool permissions + approvals
+- RAG knowledge boundaries (answer only from approved datasets)
+- budgets/cost controls
+- reliability: retries/DLQ/idempotency/circuit breakers
+- compliance: logging policies, retention, data residency (conceptual)
+Deliverables:
+1) Architecture diagram + sequence diagram (ASCII)
+2) Service boundaries + responsibilities + APIs between services
+3) Data model overview (tables/entities and keys)
+4) Key tradeoffs: monolith vs microservices; sync vs async; DB choice
+5) “MVP → Production” roadmap in 3 phases.
+
+(C) LLD — Service interfaces
+Provide:
+- API contracts between Gateway, Orchestrator, RAG, Tools, Observability
+- Error taxonomy and retryability matrix (which errors retry)
+- Contract testing plan.
+
+(D) Mini Review
+Review a “service boundary mistake” example (leaky abstraction).
+
+(E) Behavioral
+Ask: “How do you influence cross-functional stakeholders and set technical direction?”
+
+(F) Recap + Homework
+- 1-page final architecture checklist
+- 2 mixed DSA homework problems
+- 10 follow-up design questions.
+```
+
+### Day 10 — Mock 1 (coding + system design + LLD + code review) with scorecard
+
+```text
+Day 10 = Full Mock Interview 1 for JPMorgan Lead Python + AI/ML role (same JD).
+Be strict, timed, and score me.
+
+Round 1: Code Review (10 mins)
+- Give a PR snippet with at least: hardcoded secret, missing timeout, poor logging, no validation.
+- I identify issues; you provide ideal review comments.
+
+Round 2: Coding (45 mins)
+- Give 1 LeetCode-medium style problem.
+- Enforce: clarify requirements, propose approach, write code, test, analyze complexity.
+- After: provide reference solution + grading rubric (communication, correctness, complexity, tests).
+
+Round 3: System Design (60 mins)
+Question: “Design a large-scale fault-tolerant system and explain how you take MVP → production.”
+Then steer it toward my JD: agent fabric / tool integrations / AWS / observability.
+Push on:
+- failures, retries, rate limits
+- data stores, tenancy, RBAC
+- CI/CD, canary, rollback
+- monitoring/alerts and runbook
+After: scorecard + 5 prioritized improvements.
+
+Round 4: LLD (25 mins)
+Design FastAPI /agent/run with:
+- streaming (SSE), retries, timeouts, idempotency, structured logs, error model.
+Provide skeleton + tests outline.
+
+Final Output:
+- Overall score (0–10)
+- Strengths
+- Weaknesses
+- Next 3 days micro-plan.
 ```
 
 ---
 
-## Day 7 Prompt
+## Day 11 to Day 15 (Copy-paste prompts)
+
+### Day 11 — Revision day (DSA patterns + HLD templates + LLD patterns)
 
 ```text
-Day 7 — Trees BFS/DFS + Search HLD + LLD Notification
+You are my interview coach (same JD).
+Today is revision + consolidation. Output must be crisp but complete.
 
-A) DSA
-- Topic: Trees (DFS/BFS, level order, BST basics).
-- 1 easy + 1 medium.
+(A) DSA Pattern Revision
+Create a revision pack:
+1) For each pattern: hashing, sliding window, stack, tree, graph, heap, DP
+2) Give:
+   - “When to use” triggers
+   - 1 canonical problem example
+   - 3 common mistakes
+   - 5-line template/pseudocode.
 
-B) HLD
-- Topic: Search basics (inverted index, ranking, pagination, caching).
-- Mini design: “Design Search for Documents” (HLD only).
+(B) HLD Template Drill
+Give me a universal system design template for JPM:
+- requirements (functional + NFR)
+- capacity planning quick math
+- architecture + data flow
+- data stores + schemas (high level)
+- reliability + security + observability
+- cost + rollout plan
+Then give 3 short design drills (10 mins each) and expected checklist.
 
-C) LLD
-- Notification service LLD (email/sms/push).
-Include: templates, retries, provider abstraction, dedupe, skeleton + tests.
+(C) LLD Pattern Drill (Python/FastAPI)
+Provide reusable patterns:
+- Pydantic validation patterns
+- dependency injection
+- async + concurrency safety
+- retries/timeouts/circuit breaker
+- idempotency keys
+- structured errors
+- test strategy (unit/integration/contract)
+End with 1-page cheat sheet.
+```
 
-D) Closeout bullets
+### Day 12 — Mock 2 (resiliency heavy + behavioral)
+
+```text
+Full Mock Interview 2 (same JD). Focus: resiliency, fault tolerance, productionization.
+
+Round 1: System Design (70 mins)
+Question: “Improve an existing monolith to handle 50x traffic and make it fault tolerant.”
+You must:
+- ask clarifying Qs
+- propose target architecture
+- discuss rollout strategy (strangler pattern), canary, rollback
+- address data migrations, caching, queues
+- add monitoring, SLOs, incident response
+Then connect it to JD by adding: “integrate an AI agent service into this system safely.”
+
+Round 2: Coding (40 mins)
+1 medium problem (timed). Evaluate communication and tests.
+
+Round 3: Behavioral (20 mins)
+Ask 6 lead-level questions:
+- conflict resolution
+- stakeholder management
+- mentoring
+- ownership
+- handling pressure/incidents
+- making tradeoffs
+
+End with scorecard + top weaknesses + targeted drills for Day 13.
+```
+
+### Day 13 — Mock 3 (Agent + RAG + tool integrations)
+
+```text
+Mock Interview 3 (same JD). Focus: agent orchestration + RAG + toolchain integrations.
+
+Round 1: System Design (70 mins)
+Design “AI-native SDLC assistant”:
+- multi-agent orchestrator (LangGraph/A2A style)
+- RAG service (vector DB, metadata filters, strict grounding)
+- tool connectors: Jira + Git + Terraform
+- approvals + RBAC + audit trails
+- deployment on AWS (EKS; optional Step Functions/SQS)
+- observability: traces, metrics, logs, redaction
+Push me on failure modes: tool failures, hallucination, tenant leakage, retries, budgets.
+
+Round 2: LLD (35 mins)
+Implement design for:
+- ToolAdapter interface + 2 concrete adapters
+- Orchestrator state model + node interface
+- /agent/run endpoint with SSE
+Include test plan (mock tools, contract tests).
+
+Round 3: Short Coding (20 mins)
+1 short problem (stack/graph) to test speed.
+
+End with:
+- architecture ASCII diagram
+- 10 follow-up questions + ideal answers outline
+- final improvement list.
+```
+
+### Day 14 — Rapid revision + “Answer in 2 minutes” practice + STAR polishing
+
+```text
+Day 14 = Rapid Revision + Communication polishing.
+
+(A) DSA Rapid-fire
+Give 12 quick checks:
+- 6 conceptual (choose pattern, complexity, edge cases)
+- 6 mini coding snippets (fix bug / fill missing logic)
+Include Python pitfalls (mutable defaults, recursion depth, integer overflow not in python but indexing, perf).
+
+(B) HLD “2-minute pitch”
+Give me 5 prompts where I must explain a design in 2 minutes:
+- agent gateway
+- RAG service
+- tool connector safety
+- inference optimization
+- observability strategy
+After each, critique my clarity + missing points.
+
+(C) Behavioral STAR
+Help craft 8 STAR stories mapped to JD:
+- building platform/framework
+- integrating tools/APIs
+- CI/CD improvements
+- incident handling
+- mentoring/leadership
+- security/compliance decision
+- performance optimization
+- ambiguous requirements
+Output them as 60–90 sec scripts.
+
+(D) Final checklist
+Provide 1-page “day-before-interview checklist”.
+```
+
+### Day 15 — Final full loop simulation + 1-page cheat sheets
+
+```text
+Day 15 = Final full simulation (same JD). Treat this like the real on-site/superday.
+
+Round 0: PR Review (10 mins)
+Find security/reliability/style issues and propose fixes.
+
+Round 1: Coding (45 mins)
+1 LeetCode-medium style question; strict on edge cases and tests.
+
+Round 2: System Design (75 mins)
+Choose one and interview me hard:
+Option A: “AI-native SDLC agent fabric (multi-agent + RAG + toolchain + AWS).”
+Option B: “Fault tolerant system + MVP→prod + scale 50x, then integrate an AI service safely.”
+Push on:
+- tenancy/RBAC
+- audit/compliance/logging redaction
+- reliability patterns
+- rollout and rollback
+- SLOs and incident response
+- cost controls
+
+Round 3: LLD (35 mins)
+Design FastAPI service:
+- /agent/run SSE streaming
+- retries/timeouts/circuit breaker
+- idempotency
+- structured logs + correlation IDs
+- test plan
+
+Final Deliverables:
+1) scorecard (coding/design/LLD/behavioral)
+2) top 10 “must-remember” bullets
+3) 1-page cheat sheet for DSA patterns
+4) 1-page cheat sheet for system design template
+5) 1-page cheat sheet for LLD/FastAPI reliability patterns.
 ```
 
 ---
 
-## Day 8 Prompt
-
-```text
-Day 8 — Heap/TopK + Feed HLD + LLD Scheduler
-
-A) DSA
-- Topic: Heaps (top K, k-way merge, streaming median concept).
-- 1 easy + 1 medium.
-
-B) HLD
-- Topic: Feed/ranking high-level (fanout on write/read, caching, pagination).
-- Mini design: “Design a News Feed” (HLD).
-
-C) LLD
-- Task Scheduler LLD (delayed jobs + retries).
-Include: data structures, worker model, backoff, skeleton + tests.
-
-D) Closeout bullets
-```
-
----
-
-## Day 9 Prompt
-
-```text
-Day 9 — Graphs + Distributed Workflows HLD + LLD API Gateway
-
-A) DSA
-- Topic: Graph BFS/DFS; shortest path intuition.
-- 1 easy + 1 medium.
-
-B) HLD
-- Topic: workflow orchestration (sagas), eventual consistency, retries.
-- Mini design: “Design an Order workflow” (HLD).
-
-C) LLD
-- API Gateway LLD (routing, auth hooks, rate limit hook, logging hook).
-Provide: interfaces + skeleton + tests.
-
-D) Closeout bullets
-```
-
----
-
-## Day 10 Prompt
-
-```text
-Day 10 — Union-Find + Auth/Tenancy HLD + LLD RBAC
-
-A) DSA
-- Topic: Union-Find (connected components, cycle detection).
-- 1 easy + 1 medium.
-
-B) HLD
-- Topic: AuthN/AuthZ, multi-tenant isolation, RBAC, token flows.
-- Mini design: “Design Multi-tenant SaaS auth” (HLD).
-
-C) LLD
-- RBAC module LLD:
-  - users/roles/permissions
-  - checks + caching
-  - skeleton + tests
-
-D) Closeout bullets
-```
-
----
-
-## Day 11 Prompt
-
-```text
-Day 11 — Backtracking + Observability HLD + LLD Tracing
-
-A) DSA
-- Topic: Backtracking (subsets/permutations/combination sum).
-- 1 easy + 1 medium.
-
-B) HLD
-- Topic: Observability (logs/metrics/traces), SLOs, debugging.
-- Mini design: “Observability plan for a microservice system”.
-
-C) LLD
-- Design a lightweight tracing/logging library API (correlation IDs).
-Provide: middleware-style design + tests.
-
-D) Closeout bullets
-```
-
----
-
-## Day 12 Prompt
-
-```text
-Day 12 — DP + Rate Limiting HLD + LLD Circuit Breaker
-
-A) DSA
-- Topic: DP basics (1D DP: house robber, coin change style).
-- 1 medium (mandatory) + 1 optional.
-
-B) HLD
-- Topic: Rate limiting at scale (edge vs service), token bucket, quotas, abuse prevention.
-- Mini design: “Rate limiting for public APIs” (HLD).
-
-C) LLD
-- Implement Circuit Breaker component (CLOSED/OPEN/HALF_OPEN) with tests.
-
-D) Closeout bullets
-```
-
----
-
-## Day 13 Prompt
-
-```text
-Day 13 — Mixed DSA Revision + Full HLD Case Study (URL Shortener) + LLD Deep Dive
-
-A) DSA
-- Give me 2 medium problems from mixed patterns (must be different).
-Teach quickly but clearly.
-
-B) HLD Case Study (Deep)
-- Design URL Shortener end-to-end:
-  - requirements (functional/non-functional)
-  - capacity planning
-  - APIs + data model
-  - short link generation strategy
-  - caching, replication, consistency
-  - failure modes
-  - security/abuse
-  - observability
-Output as a structured design doc.
-
-C) LLD
-- Implement core LLD modules for URL shortener:
-  - ShortCodeGenerator interface
-  - Repository layer
-  - Cache layer
-  - service orchestrator
-Include skeleton + tests.
-
-D) Closeout: 5-min pitch + 30-min deep dive outline
-```
-
----
-
-## Day 14 Prompt
-
-```text
-Day 14 — Mock Interviews (DSA + HLD + LLD) + Final Cheat Sheets
-
-A) DSA Mock
-- Run a mock interview:
-  - Ask me 1 medium problem.
-  - Wait for my approach.
-  - Challenge with corner cases.
-  - Ask for optimized solution + complexity.
-  - Ask follow-up variation.
-(If I don’t answer, provide a model solution after 1 turn.)
-
-B) HLD Mock
-- Run mock system design: “Design Chat System” OR “Design Notification System”
-Provide prompts step-by-step (requirements → scaling → tradeoffs).
-Then give a strong reference answer.
-
-C) LLD Mock
-- Give an LLD prompt (e.g., “Design an In-memory Cache with TTL and eviction”).
-Provide rubric + reference design.
-
-D) Final output:
-- DSA pattern cheat sheet (1 page)
-- HLD checklist (requirements→capacity→API→data→components→scaling→reliability→security→observability)
-- LLD checklist (SOLID + patterns + concurrency + testing)
-```
-
----
-
-# How to run each day (simple “paste sequence”)
-
-Every new chat:
-
-1. Paste **State Pack**
-2. Paste **Day X Prompt**
-3. Solve DSA interactively (paste your solution back for review)
-4. For HLD: ask me to “Convert this into a 1–2 page interview doc” after you draft
-5. For LLD: paste your class diagram/thoughts → I refine → you code
-6. Paste this closeout:
-
-```text
-Closeout:
-- Summarize today in 8 bullets (interview-ready)
-- 5 tradeoffs I should mention
-- 3 weak spots to revise tomorrow
-- 10 flashcards (Q→A) from today
-```
-
----
-### single “Daily Delta Prompt (DSA+Design)
-- A **single “Daily Delta Prompt (DSA+Design)”** similar to your PoC delta prompt—so each morning it tells you *exactly* what to practice next based on yesterday’s progress.
-
-
-```text
-DAILY DELTA PROMPT (DSA + HLD + LLD) — Post-Session Next-Step Guide
-
-You are my interview prep coach for Product/Startup roles.
-Your job is to generate the NEXT DAY delta plan (what to practice, what to fix) based on my progress,
-WITHOUT giving me long theory notes.
-
-========================
-INPUTS (I will paste these)
-========================
-1) CurrentDay: <1..14>
-2) Time available tomorrow: <minutes/hours>
-3) What I completed today:
-   - DSA: <problems + patterns>
-   - HLD: <system(s)>
-   - LLD: <design(s)/components>
-4) What I struggled with:
-   - DSA: <e.g., sliding window, complexity, edge cases>
-   - HLD: <e.g., capacity, data model, tradeoffs>
-   - LLD: <e.g., class design, patterns, concurrency, tests>
-5) Evidence (paste any/all):
-   - DSA solution snippets OR approach summary
-   - HLD outline (bullets)
-   - LLD class diagram outline (text)
-6) Mistakes I made (if known):
-7) Goal role focus tomorrow: <DSA-heavy | Design-heavy | Balanced> (default Balanced)
-
-IMPORTANT:
-- Do NOT ask follow-up questions.
-- If something is missing, infer and proceed.
-- Keep me on-scope: no extra exploration.
-
-========================
-YOUR OUTPUT (STRICT)
-========================
-A) Day Alignment Check (5–8 bullets)
-- Are we on track for 14-day DSA+HLD+LLD readiness?
-- What’s lagging (DSA speed, HLD structure, LLD clarity, etc.)?
-
-B) Tomorrow’s Objective (3 lines)
-- 1 sentence each for:
-  - DSA objective
-  - HLD objective
-  - LLD objective
-
-C) Delta Plan (Actionable)
-1) DSA (exact)
-   - Pattern focus (1–2)
-   - 1 easy warm-up (name the type)
-   - 1 medium main problem (name the type)
-   - 1 “twist” follow-up variation
-   - 5 edge cases I must mention
-   - Complexity targets (time/space)
-   - A 6-step checklist to solve under interview pressure
-
-2) HLD (exact)
-   - System to design (choose ONE)
-   - Requirements to lock first (5–8)
-   - Capacity numbers to estimate (5 items)
-   - Core components list (8–12)
-   - Data model tables/entities (5–8)
-   - Scaling plan (3 phases: MVP → scale → massive)
-   - Reliability + security + observability checklist (10 bullets)
-   - 5 tradeoffs I must defend
-
-3) LLD (exact)
-   - LLD problem/module to design (choose ONE)
-   - Assumptions + constraints (5–8)
-   - Class list (8–15) + relationships (text diagram)
-   - Patterns to apply (max 3) + why
-   - Concurrency strategy (if relevant)
-   - Minimal code skeleton plan (files/modules)
-   - Tests to write (min 3) with what to assert
-
-D) Time Box Plan (strict schedule)
-- If time is limited, give a compressed schedule with minutes.
-- Must fit within “Time available tomorrow”.
-
-E) DoD (Definition of Done)
-- 8–12 acceptance criteria for tomorrow:
-  - DSA: solved + explained + final code
-  - HLD: 1–2 page structured doc + diagram
-  - LLD: skeleton + tests + edge cases
-
-F) Interview Pack for Tomorrow
-- 8 rapid-fire questions (mix of DSA/HLD/LLD)
-- 8 model short answers (2–5 lines each)
-- 5 “red flags” to avoid saying
-
-========================
-RULES (STRICT)
-========================
-- Keep response concise and executable.
-- No long tutorials.
-- No more than 2 DSA problems + 1 HLD + 1 LLD for tomorrow.
-- Always include 1 speed drill tip (how to be faster).
-- Always include 1 communication tip (how to explain cleanly).
-- Prefer high-yield patterns and classic systems.
-
-========================
-START
-========================
-Using my pasted inputs, generate the Daily Delta plan now.
-```
-
+[1]: https://leetcode.com/discuss/post/7359766/jpmorgan-chase-sde-3-java-full-stack-dev-rxak/?utm_source=chatgpt.com "JPMorgan Chase SDE-3 Java Full stack developer ..."
