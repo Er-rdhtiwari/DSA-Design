@@ -7,6 +7,308 @@
 
 ---
 
+
+## ✅ Optimized Industry-Style, Notes-Centric Minimal PoC Prompt (Ready-to-Run)
+```
+You are a **Senior AI Engineer & System Architect** working in an industry team.
+
+### Context & Assumptions
+
+* The **latest chat history always contains detailed study notes** (“today’s study notes”).
+* The PoC must be **notes-centric**: every key module must clearly map back to concepts/patterns in **today’s study notes** to consolidate learning.
+
+### Your Goal
+
+Generate **ONE tiny but realistic PoC** that is:
+
+* **end-to-end runnable** with **no code changes**
+* follows **industry practices** (src layout, typing, logging, tests)
+* designed to **reinforce concepts from today’s study notes**
+* **offline-safe by default** (no accidental paid API calls; deterministic local run)
+
+**Do not ask clarifying questions.** Make reasonable assumptions and proceed.
+
+---
+
+## 1) Problem Definition (Notes-Centric, Small Scope)
+
+Propose **ONE realistic use case** that best showcases **today’s study notes**.
+
+**Scope constraints (hard):**
+
+* **Max 1–2 HTTP endpoints** (FastAPI preferred) OR 1–2 CLI commands
+* Storage: **in-memory OR JSON OR SQLite only**
+* **No microservices**, no Kafka, no queues, no background workers
+* Keep it **tiny**, but not toyish
+
+Provide:
+
+* A **3–5 line business problem statement**
+* **Functional requirements** (3–5 bullets)
+* **Non-functional requirements** (3–5 bullets: reliability, security, observability, cost, performance)
+* A **Notes → PoC Mapping table** with columns:
+
+  * **Study Note Concept**
+  * **Where Implemented (file + function/class)**
+  * **How it’s applied**
+  * **Why it matters in interviews**
+
+---
+
+## 2) Architecture Overview (HLD in 5–10 Lines)
+
+Describe architecture in **5–10 concise lines**:
+
+* client (curl / HTTP client)
+* FastAPI layer (routing, request/response models)
+* service layer (domain logic)
+* config/settings layer (env-based)
+* llm_client abstraction (real provider path + deterministic mock fallback)
+
+Include a **small ASCII diagram** (max 7 lines) showing dependencies/layers.
+
+---
+
+## 3) Repository Layout (Standard Python src/ Layout)
+
+Use this layout exactly:
+
+project_root/
+pyproject.toml
+README.md
+.env.example
+
+src/
+app/
+**init**.py
+main.py
+
+
+core/
+  __init__.py
+  models.py
+  services.py
+  llm_client.py
+
+config/
+  __init__.py
+  settings.py
+
+
+tests/
+**init**.py
+test_app.py
+
+For **each file**, provide a **one-line responsibility**.
+
+---
+
+## 4) Engineering Standards (Must Follow)
+
+Apply these standards everywhere:
+
+### Code Quality
+
+* PEP 8 formatting
+* **Type hints everywhere**
+* short docstrings for public APIs
+* separation of concerns:
+
+  * FastAPI = transport only
+  * services = business logic
+  * llm_client = provider wrapper
+  * settings = config source
+
+### Config & Secrets (12-factor)
+
+* Read config from env vars only
+* Never hardcode secrets
+* Provide `.env.example`
+
+### Error Handling
+
+* no bare `except`
+* raise clear domain exceptions
+* translate to FastAPI HTTP errors at API boundary only
+
+### Logging
+
+* use Python `logging`
+* meaningful INFO/WARNING/ERROR messages
+* avoid printing secrets/keys
+
+---
+
+## 5) LLM Safety & Determinism (Hard Rules)
+
+### Runtime behavior
+
+* Implement an **LLMClient abstraction** with:
+
+  * `generate_text(prompt: str) -> str`
+* **Default behavior must be mock mode** unless explicitly enabled.
+* Add env var:
+
+  * `LLM_MODE=mock|real` (default: `mock`)
+* If `LLM_MODE=mock`, return deterministic:
+
+  * `MOCK_LLM_RESPONSE for: <prompt>`
+* If `LLM_MODE=real` and a supported provider key exists, make **one real call path** (guarded).
+* If keys missing or provider fails, **never crash** — fallback to mock with a warning log.
+
+### Testing behavior (offline guarantee)
+
+* Tests must be **100% offline**:
+
+  * force `LLM_MODE=mock` in tests
+  * must not perform network calls
+  * tests must be deterministic
+
+---
+
+## 6) Output Contract (Avoid Truncation / Ensure Copy-Paste)
+
+Output **every file** as:
+
+**# FILE: path/to/file**
+
+language
+<complete code>
+
+
+Rules:
+
+* **No TODOs**, no placeholders, no “left as exercise”
+* No missing imports
+* Ensure `pip install .` works
+* Ensure `pytest -q` works
+
+---
+
+## 7) File Requirements (What to Implement)
+
+### 7.1 pyproject.toml
+
+* PEP 621 style
+* include: project metadata, python version, dependencies:
+
+  * fastapi, uvicorn, pydantic, pydantic-settings, pytest
+  * httpx only if needed
+* include pytest options if required
+
+### 7.2 .env.example
+
+Include exactly these env vars (keep names unchanged):
+OPENAI_API_KEY=sk-xxx
+ANTHROPIC_API_KEY=sk-xxx
+GOOGLE_API_KEY=AIzxxx
+OLAMA_API_KEY=olama
+HF_TOKEN=hf_xxx
+GROK_MODEL=xai-xxx
+LLM_MODE=mock
+APP_ENV=local
+PORT=8000
+
+(You may add more only if truly required.)
+
+### 7.3 src/config/settings.py
+
+* typed Settings using pydantic-settings
+* `get_settings()` cached singleton
+* include LLM_MODE/APP_ENV/PORT and provider keys
+
+### 7.4 src/core/llm_client.py
+
+* LLMClient class
+* supports mock + real (guarded)
+* robust error handling + logging
+* never crashes if keys absent
+
+### 7.5 src/core/models.py
+
+* Pydantic models for request/response and one internal domain entity
+* must reflect note concepts (typing, validation)
+
+### 7.6 src/core/services.py
+
+* business logic isolated from FastAPI
+* accepts typed inputs, returns typed outputs
+* calls llm_client optionally
+* include brief comments referencing note concepts/patterns
+
+### 7.7 src/app/main.py
+
+* FastAPI app (title + version)
+* 1–2 endpoints max under `/api/v1/...`
+* uses models + services
+* includes run instructions comment:
+
+  * `uvicorn app.main:app --reload --port 8000`
+
+### 7.8 tests/test_app.py
+
+* pytest + FastAPI TestClient
+* at least one happy path test asserting:
+
+  * status code
+  * response schema
+  * mock response behavior
+* enforce offline mode (set env `LLM_MODE=mock`)
+
+### 7.9 README.md
+
+Must include:
+
+* Overview (3–5 lines)
+* “How this uses today’s study notes” (map modules to concepts)
+* Tech stack
+* Setup commands
+* Run command
+* 2–3 curl examples
+* Next steps/extensions (3–5 bullets)
+
+---
+
+## 8) Run & Test Commands (Outside README)
+
+In the final answer also include:
+
+### Commands
+
+* Create venv + install:
+
+  * `python -m venv .venv`
+  * `source .venv/bin/activate`
+  * `pip install .`
+* Run:
+
+  * `uvicorn app.main:app --reload --port 8000`
+* Test:
+
+  * `pytest -q`
+
+### Curl examples (copy-paste runnable)
+
+Provide 2–3 curl requests with typical payloads and expected JSON shape.
+Mention:
+
+* Interactive docs: `http://localhost:8000/docs`
+
+---
+
+## 9) System Design & Cost Notes (8–10 bullets total)
+
+Explain briefly:
+
+* how to evolve this into real system (auth, DB, async jobs, queues, caching)
+* where LLM cost appears
+* 3–5 concrete cost controls (smaller models, caching, truncation, rate limiting, mock in tests/dev)
+---
+```
+
+
+---
+
 ### ✅ Day 1 – Python Core & Environment
 
 ```markdown
@@ -1658,302 +1960,4 @@ Produce a **senior-level explanation** that helps me tie **everything from Day 1
 - And a clean repo/infra strategy for the final capstone.
 ```
 
----
-
-
-## ✅ Optimized Industry-Style, Notes-Centric Minimal PoC Prompt (Ready-to-Run)
-
-You are a **Senior AI Engineer & System Architect** working in an industry team.
-
-### Context & Assumptions
-
-* The **latest chat history always contains detailed study notes** (“today’s study notes”).
-* The PoC must be **notes-centric**: every key module must clearly map back to concepts/patterns in **today’s study notes** to consolidate learning.
-
-### Your Goal
-
-Generate **ONE tiny but realistic PoC** that is:
-
-* **end-to-end runnable** with **no code changes**
-* follows **industry practices** (src layout, typing, logging, tests)
-* designed to **reinforce concepts from today’s study notes**
-* **offline-safe by default** (no accidental paid API calls; deterministic local run)
-
-**Do not ask clarifying questions.** Make reasonable assumptions and proceed.
-
----
-
-## 1) Problem Definition (Notes-Centric, Small Scope)
-
-Propose **ONE realistic use case** that best showcases **today’s study notes**.
-
-**Scope constraints (hard):**
-
-* **Max 1–2 HTTP endpoints** (FastAPI preferred) OR 1–2 CLI commands
-* Storage: **in-memory OR JSON OR SQLite only**
-* **No microservices**, no Kafka, no queues, no background workers
-* Keep it **tiny**, but not toyish
-
-Provide:
-
-* A **3–5 line business problem statement**
-* **Functional requirements** (3–5 bullets)
-* **Non-functional requirements** (3–5 bullets: reliability, security, observability, cost, performance)
-* A **Notes → PoC Mapping table** with columns:
-
-  * **Study Note Concept**
-  * **Where Implemented (file + function/class)**
-  * **How it’s applied**
-  * **Why it matters in interviews**
-
----
-
-## 2) Architecture Overview (HLD in 5–10 Lines)
-
-Describe architecture in **5–10 concise lines**:
-
-* client (curl / HTTP client)
-* FastAPI layer (routing, request/response models)
-* service layer (domain logic)
-* config/settings layer (env-based)
-* llm_client abstraction (real provider path + deterministic mock fallback)
-
-Include a **small ASCII diagram** (max 7 lines) showing dependencies/layers.
-
----
-
-## 3) Repository Layout (Standard Python src/ Layout)
-
-Use this layout exactly:
-
-project_root/
-pyproject.toml
-README.md
-.env.example
-
-src/
-app/
-**init**.py
-main.py
-
-```
-core/
-  __init__.py
-  models.py
-  services.py
-  llm_client.py
-
-config/
-  __init__.py
-  settings.py
-```
-
-tests/
-**init**.py
-test_app.py
-
-For **each file**, provide a **one-line responsibility**.
-
----
-
-## 4) Engineering Standards (Must Follow)
-
-Apply these standards everywhere:
-
-### Code Quality
-
-* PEP 8 formatting
-* **Type hints everywhere**
-* short docstrings for public APIs
-* separation of concerns:
-
-  * FastAPI = transport only
-  * services = business logic
-  * llm_client = provider wrapper
-  * settings = config source
-
-### Config & Secrets (12-factor)
-
-* Read config from env vars only
-* Never hardcode secrets
-* Provide `.env.example`
-
-### Error Handling
-
-* no bare `except`
-* raise clear domain exceptions
-* translate to FastAPI HTTP errors at API boundary only
-
-### Logging
-
-* use Python `logging`
-* meaningful INFO/WARNING/ERROR messages
-* avoid printing secrets/keys
-
----
-
-## 5) LLM Safety & Determinism (Hard Rules)
-
-### Runtime behavior
-
-* Implement an **LLMClient abstraction** with:
-
-  * `generate_text(prompt: str) -> str`
-* **Default behavior must be mock mode** unless explicitly enabled.
-* Add env var:
-
-  * `LLM_MODE=mock|real` (default: `mock`)
-* If `LLM_MODE=mock`, return deterministic:
-
-  * `MOCK_LLM_RESPONSE for: <prompt>`
-* If `LLM_MODE=real` and a supported provider key exists, make **one real call path** (guarded).
-* If keys missing or provider fails, **never crash** — fallback to mock with a warning log.
-
-### Testing behavior (offline guarantee)
-
-* Tests must be **100% offline**:
-
-  * force `LLM_MODE=mock` in tests
-  * must not perform network calls
-  * tests must be deterministic
-
----
-
-## 6) Output Contract (Avoid Truncation / Ensure Copy-Paste)
-
-Output **every file** as:
-
-**# FILE: path/to/file**
-
-```language
-<complete code>
-```
-
-Rules:
-
-* **No TODOs**, no placeholders, no “left as exercise”
-* No missing imports
-* Ensure `pip install .` works
-* Ensure `pytest -q` works
-
----
-
-## 7) File Requirements (What to Implement)
-
-### 7.1 pyproject.toml
-
-* PEP 621 style
-* include: project metadata, python version, dependencies:
-
-  * fastapi, uvicorn, pydantic, pydantic-settings, pytest
-  * httpx only if needed
-* include pytest options if required
-
-### 7.2 .env.example
-
-Include exactly these env vars (keep names unchanged):
-OPENAI_API_KEY=sk-xxx
-ANTHROPIC_API_KEY=sk-xxx
-GOOGLE_API_KEY=AIzxxx
-OLAMA_API_KEY=olama
-HF_TOKEN=hf_xxx
-GROK_MODEL=xai-xxx
-LLM_MODE=mock
-APP_ENV=local
-PORT=8000
-
-(You may add more only if truly required.)
-
-### 7.3 src/config/settings.py
-
-* typed Settings using pydantic-settings
-* `get_settings()` cached singleton
-* include LLM_MODE/APP_ENV/PORT and provider keys
-
-### 7.4 src/core/llm_client.py
-
-* LLMClient class
-* supports mock + real (guarded)
-* robust error handling + logging
-* never crashes if keys absent
-
-### 7.5 src/core/models.py
-
-* Pydantic models for request/response and one internal domain entity
-* must reflect note concepts (typing, validation)
-
-### 7.6 src/core/services.py
-
-* business logic isolated from FastAPI
-* accepts typed inputs, returns typed outputs
-* calls llm_client optionally
-* include brief comments referencing note concepts/patterns
-
-### 7.7 src/app/main.py
-
-* FastAPI app (title + version)
-* 1–2 endpoints max under `/api/v1/...`
-* uses models + services
-* includes run instructions comment:
-
-  * `uvicorn app.main:app --reload --port 8000`
-
-### 7.8 tests/test_app.py
-
-* pytest + FastAPI TestClient
-* at least one happy path test asserting:
-
-  * status code
-  * response schema
-  * mock response behavior
-* enforce offline mode (set env `LLM_MODE=mock`)
-
-### 7.9 README.md
-
-Must include:
-
-* Overview (3–5 lines)
-* “How this uses today’s study notes” (map modules to concepts)
-* Tech stack
-* Setup commands
-* Run command
-* 2–3 curl examples
-* Next steps/extensions (3–5 bullets)
-
----
-
-## 8) Run & Test Commands (Outside README)
-
-In the final answer also include:
-
-### Commands
-
-* Create venv + install:
-
-  * `python -m venv .venv`
-  * `source .venv/bin/activate`
-  * `pip install .`
-* Run:
-
-  * `uvicorn app.main:app --reload --port 8000`
-* Test:
-
-  * `pytest -q`
-
-### Curl examples (copy-paste runnable)
-
-Provide 2–3 curl requests with typical payloads and expected JSON shape.
-Mention:
-
-* Interactive docs: `http://localhost:8000/docs`
-
----
-
-## 9) System Design & Cost Notes (8–10 bullets total)
-
-Explain briefly:
-
-* how to evolve this into real system (auth, DB, async jobs, queues, caching)
-* where LLM cost appears
-* 3–5 concrete cost controls (smaller models, caching, truncation, rate limiting, mock in tests/dev)
 ---
