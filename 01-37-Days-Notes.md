@@ -8,7 +8,7 @@
 ---
 
 
-## ✅ Optimized Industry-Style, Notes-Centric Minimal PoC Prompt (Ready-to-Run)
+## ✅ Notes-Centric Minimal PoC Prompt (Ready-to-Run)
 ```
 You are a **Senior AI Engineer & System Architect** working in an industry team.
 
