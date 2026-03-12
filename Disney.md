@@ -620,7 +620,7 @@ Important style instructions:
 [2]: https://docs.langchain.com/oss/python/langgraph/overview?utm_source=chatgpt.com "LangGraph overview - Docs by LangChain"
 ---
 
-#  **Day 7 revision prompt** that revises **all important topics and subtopics from Day 1 to Day 6** in one integrated way.
+##  **Day 7 revision prompt** that revises **all important topics and subtopics from Day 1 to Day 6** in one integrated way.
 
 ```text
 Act as a patient Staff AI Engineer mentor. Help me revise Day 7 of my Disney-focused study plan in very simple language. I am now in revision mode, so do not teach topics in isolation. Instead, help me revise the full learning journey from Day 1 to Day 6 as one connected production AI system. I am not fully confident yet, so start from foundational mental models, then connect everything step by step. Define every important term in simple words before using it. Use one consistent easy backend example throughout.
