@@ -786,6 +786,981 @@ Important style instructions:
 ```
 
 ---
+
+### Below are **3 ready-to-copy-paste capstone revision prompts** that compress and reorganize the full **Day 1–37 plan** into a sharper final revision sequence.
+
+I grouped them like this for better retention:
+
+* **Day 1:** Foundations + backend + data + cloud basics
+* **Day 2:** ML/LLM/RAG/agents + production AI systems
+* **Day 3:** Infra/platform/capstone/system design/storytelling
+
+This order helps you revise from:
+**core engineering base → AI system intelligence layer → full production ownership/storytelling**
+
+---
+
+# Day 1 – Capstone Revision Prompt: Python, DSA, Backend, APIs, Databases, Cloud Basics
+
+```markdown
+# Capstone Revision – Day 1
+## Python, DSA, Backend Engineering, APIs, Databases, Caching, ETL, and Cloud Basics
+
+You are an expert **Senior AI Engineer interview coach** and **backend systems mentor**.
+
+Today is **Capstone Revision Day 1** of my final 3-day revision plan for a **Senior AI Engineer / Staff AI Engineer / GenAI Backend Engineer** interview.
+
+Your goal is to help me **revise all core engineering foundations deeply but efficiently**, using a **high-signal interview-oriented format**.
+
+---
+
+## What I want from you
+
+For all topics below:
+
+1. Explain each concept in **clear, simple, but interview-level depth**.
+2. Focus on how these concepts are used in **real AI/ML/LLM backend systems**.
+3. Add **practical examples** from systems such as:
+   - model-serving APIs
+   - RAG backends
+   - agent platforms
+   - chat systems
+   - async workers
+   - ingestion pipelines
+4. For each major section, include:
+   - **core idea**
+   - **how it works**
+   - **where it appears in GenAI systems**
+   - **best practices**
+   - **common pitfalls**
+   - **interview angle / what a senior engineer should say**
+5. Where helpful, include **small code snippets** with:
+   - beginner-friendly comments
+   - explanation of intuition
+   - tricky parts / edge cases
+6. End with:
+   - **20–30 interview questions with concise answers**
+   - **a final revision checklist**
+   - **a “must-remember in interview” cheat sheet**
+
+Organize the answer with **clear headings, bullets, compact examples, and revision-friendly structure**.
+
+---
+
+## Cover ALL of these topics
+
+### 1) Python Core Revision
+- Python fundamentals:
+  - `int`, `float`, `str`, `bool`
+  - `list`, `tuple`, `set`, `dict`
+  - slicing, comprehensions
+- Functions:
+  - parameters, return values
+  - `*args`, `**kwargs`
+- Modules, packages, imports
+- Virtual environments:
+  - `venv`, `pyenv`, `uv`
+- Project structure for Python backend services
+- `.env` files and config loading
+- Logging basics
+- `try/except/finally`
+- `pytest` basics
+
+### 2) Python OOP + Advanced Python
+- Classes, objects, attributes, methods
+- Encapsulation, abstraction, inheritance, polymorphism
+- Composition vs inheritance
+- `__init__`, instance vs class variables
+- `@staticmethod`, `@classmethod`, `@property`
+- `@dataclass`
+- Dunder methods: `__repr__`, `__str__`, `__eq__`, `__len__`
+- Type hints:
+  - `List`, `Dict`, `Optional`, `Union`, `TypedDict`
+- Static typing benefits in large AI codebases
+- Pydantic for validation
+- Custom exceptions
+- Structured logging
+- Correlation/request IDs
+- Testing with fixtures and mocks
+
+### 3) Async, Concurrency, and Background Work
+- Sync vs async I/O
+- `async` / `await`
+- event loop basics
+- `asyncio.gather`, tasks
+- Threads vs processes vs async
+- `concurrent.futures`
+- When async matters in GenAI systems:
+  - parallel tool calls
+  - concurrent retrieval calls
+  - model API waiting
+- Pitfalls:
+  - blocking I/O inside async code
+  - race conditions
+  - shared mutable state
+  - timeout handling
+- Observability/debugging for async services
+
+### 4) DSA High-Yield Revision
+Cover only the most interview-relevant intuition, patterns, and recognition rules for:
+
+- Big-O basics
+- Arrays and strings
+- Prefix sums
+- Hashing:
+  - frequency maps
+  - duplicate detection
+  - anagrams
+  - two-sum pattern
+- Two pointers
+- Sliding window
+- Stack
+- Queue
+- DFS/BFS basics
+- Trees and graphs intuition
+- DP basics:
+  - memoization vs tabulation
+  - 0/1 knapsack intuition
+
+For each pattern:
+- when to use it
+- common clues in problem statements
+- common mistakes
+- time/space complexity
+- one simple Python example where useful
+
+### 5) Design Patterns and Clean Architecture
+- SOLID principles
+- Factory
+- Strategy
+- Adapter
+- Decorator
+- Facade
+- Layered architecture:
+  - API layer
+  - service layer
+  - repository/data layer
+  - infra/integration layer
+- Separation of concerns in GenAI systems
+- Example folder structure for a production GenAI backend
+
+### 6) HTTP, APIs, and FastAPI/Flask
+- HTTP methods
+- status codes
+- headers, path params, query params, request body
+- REST design basics
+- resource modeling
+- idempotency
+- versioning
+- JSON schema basics
+- pagination and filtering
+- AI endpoints:
+  - `/chat`
+  - `/predict`
+  - `/embed`
+  - `/health`
+- Flask vs FastAPI
+- request/response validation
+- OpenAPI / Swagger
+- middleware
+- request logging
+- latency measurement
+- auth basics:
+  - JWT
+  - API keys
+  - OAuth2 concept
+- standard error response format
+- async endpoints
+- ORM integration overview
+
+### 7) ORM, SQL, and Relational Data Modeling
+- ORM basics:
+  - entities, models, relationships
+- SQLAlchemy / SQLModel concepts
+- CRUD
+- sessions and transactions
+- rollback patterns
+- one-to-many relationships
+- N+1 problem
+- SQL fundamentals:
+  - SELECT, INSERT, UPDATE, DELETE
+  - WHERE, GROUP BY, HAVING, ORDER BY
+  - joins
+- Schema design for a GenAI app:
+  - users
+  - organizations
+  - conversations
+  - messages
+  - documents
+- Primary keys, foreign keys, normalization vs denormalization
+- Indexes:
+  - when they help
+  - read/write trade-offs
+- ACID basics
+- DB testing patterns with pytest
+
+### 8) NoSQL, Redis, Vector DB Basics, and Caching
+- SQL vs NoSQL
+- MongoDB/document DB mental model
+- Redis:
+  - key-value
+  - TTL
+  - rate limiting
+  - caching
+  - locks
+- read-through cache pattern
+- Vector database basics:
+  - embeddings
+  - vectors
+  - similarity search
+  - cosine / dot product / Euclidean intuition
+- Index types:
+  - HNSW
+  - IVF
+  - Flat
+- Vector DB schema:
+  - id
+  - text
+  - embedding
+  - metadata
+- Tools overview:
+  - FAISS
+  - Chroma
+  - Qdrant
+  - Pinecone
+- Pitfalls:
+  - wrong embedding model
+  - missing metadata
+  - poor tenant filtering
+
+### 9) ETL and Ingestion Foundations
+- ETL basics
+- batch vs streaming
+- sources:
+  - files
+  - S3/object storage
+  - databases
+  - APIs
+  - web pages
+- cleaning text
+- removing boilerplate
+- encoding issues
+- metadata enrichment
+- source URL / timestamp / tags / doc type
+- pagination, retries, rate limits, backoff
+- duplicate detection
+- basic PII masking concept
+- data lineage
+- design an ingestion flow:
+  - read → clean → enrich → store → index
+
+### 10) Cloud and Kubernetes Basics
+- Cloud basics:
+  - compute
+  - storage
+  - managed DB
+  - managed Kubernetes
+- AWS/GCP/Azure mental model
+- S3/GCS/Blob
+- EC2/VMs
+- EKS/GKE/AKS
+- Kubernetes basics:
+  - pod
+  - deployment
+  - service
+  - ingress
+  - configmap
+  - secret
+  - HPA
+- load balancing basics
+- scale-up vs scale-out
+- API gateway / ALB / NLB concepts
+- where these fit in an AI platform
+
+---
+
+## Important output requirements
+
+Please structure the answer in this order:
+
+1. **Big-picture mental map**
+2. **Topic-by-topic revision notes**
+3. **Real-world GenAI examples**
+4. **Best practices + pitfalls**
+5. **Senior interview angle**
+6. **20–30 interview Q&A**
+7. **Final Day 1 revision checklist**
+8. **Ultra-short cheat sheet**
+
+Make the explanation **dense, clear, and revision-friendly**. Avoid unnecessary fluff.
+```
+
+---
+
+# Day 2 – Capstone Revision Prompt: ML, Deep Learning, LLMs, Prompting, RAG, Agents, Frameworks, Security
+
+```markdown
+# Capstone Revision – Day 2
+## ML, Deep Learning, LLMs, Prompting, RAG, Agents, Frameworks, Evaluation, Security, and LLMOps
+
+You are an expert **Senior AI Engineer interview coach** and **GenAI systems architect**.
+
+Today is **Capstone Revision Day 2** of my final 3-day revision plan for **Senior AI Engineer / Staff AI Engineer / GenAI Platform / LLM Engineer** interviews.
+
+Your goal is to help me revise the **complete AI and GenAI stack** from ML basics to production-grade RAG and agent systems.
+
+---
+
+## What I want from you
+
+For all topics below:
+
+1. Explain them in **simple but technically correct language**.
+2. Keep the explanation **interview-focused and production-oriented**.
+3. Show how the pieces connect into **real GenAI architectures**.
+4. For each major section, include:
+   - **core idea**
+   - **why it matters**
+   - **where it appears in production**
+   - **trade-offs**
+   - **common mistakes**
+   - **senior-level answer framing**
+5. Add **real-world examples** from:
+   - chat assistants
+   - enterprise RAG
+   - internal knowledge search
+   - tool-using agents
+   - multi-tenant GenAI SaaS
+6. End with:
+   - **25–35 interview questions with concise answers**
+   - **a final checklist**
+   - **a one-page mental model for AI systems**
+
+Organize everything with **clear headings, bullets, and revision-friendly summaries**.
+
+---
+
+## Cover ALL of these topics
+
+### 1) ML Foundations Refresher
+- Supervised vs unsupervised vs reinforcement learning
+- train/validation/test split
+- overfitting
+- regularization
+- evaluation metrics:
+  - accuracy
+  - precision
+  - recall
+  - F1
+  - ROC-AUC
+  - MSE
+  - MAE
+- classical algorithms:
+  - linear regression
+  - logistic regression
+  - decision tree
+  - random forest
+- math refresh:
+  - vectors
+  - matrices
+  - dot product
+  - cosine similarity
+  - gradients
+  - backprop intuition
+  - random variables
+  - expectation
+  - variance
+  - conditional probability
+  - Bayes rule
+- NLP basics:
+  - tokenization
+  - word embeddings
+- CV basics:
+  - CNNs
+  - transfer learning
+
+### 2) Deep Learning and Transformers
+- neural network basics:
+  - layers
+  - activations
+  - loss
+  - optimization
+- SGD vs Adam intuition
+- transformer architecture high level
+- self-attention
+- query, key, value intuition
+- positional encoding
+- model families:
+  - encoder-only
+  - decoder-only
+  - encoder-decoder
+- why transformers work well
+- connection to:
+  - LLMs
+  - embedding models
+  - RAG pipelines
+
+### 3) LLM Fundamentals
+- tokenization:
+  - BPE
+  - sentencepiece
+  - tokens vs words/characters
+- training stages:
+  - pretraining
+  - fine-tuning
+  - instruction tuning
+  - RLHF
+  - DPO
+- inference controls:
+  - temperature
+  - top-k
+  - top-p
+  - repetition penalty
+  - max tokens
+- context window
+- long-context limitations
+- model family overview:
+  - GPT
+  - LLaMA
+  - Mistral
+  - Gemma
+  - Phi
+- cost and latency trade-offs:
+  - input tokens
+  - output tokens
+  - model size
+  - response time
+
+### 4) Multi-Modal and Generative Models
+- multimodal LLMs
+- text + image flows
+- document Q&A use cases
+- visual reasoning
+- diffusion model intuition
+- denoising
+- text-to-image pipeline
+- VAEs vs GANs vs diffusion vs LLMs
+- hallucinations
+- bias
+- toxicity
+- copyright/safety issues
+- evaluation:
+  - BLEU
+  - ROUGE
+  - LLM-as-judge
+  - human evaluation
+
+### 5) Prompt Engineering and Guardrails
+- message roles:
+  - system
+  - user
+  - assistant
+  - tool
+- role of system prompt in real products
+- few-shot prompting
+- chain-of-thought:
+  - when useful
+  - when not to expose
+- ReAct style prompting
+- output structure control:
+  - JSON
+  - tables
+  - schemas
+- prompt-based guardrails
+- asking for citations
+- refusal style
+- unknown-answer behavior
+- prompt regression tests
+- anti-patterns:
+  - vague prompts
+  - prompt hacks
+  - brittle prompt engineering
+
+### 6) RAG Fundamentals and Retrieval
+- RAG end-to-end architecture
+- ingestion pipeline
+- query → retrieval → generation
+- chunking:
+  - fixed-size
+  - heading-based
+  - adaptive
+  - overlap
+- embeddings
+- choosing embedding models
+- handling large documents
+- vector DB schema design
+- metadata:
+  - tenant
+  - doc type
+  - time
+  - source
+- retrieval strategies:
+  - vector retrieval
+  - BM25
+  - hybrid retrieval
+  - reranking
+- query rewriting / expansion
+- context assembly:
+  - how many chunks
+  - ordering
+  - truncation
+  - metadata filtering
+- hallucination mitigation:
+  - grounding
+  - citations
+  - abstain / “I don’t know”
+- RAG evaluation:
+  - Recall@k
+  - Precision@k
+  - MRR
+  - LLM-as-judge
+  - human eval
+- tuning levers:
+  - chunk size
+  - overlap
+  - k
+  - reranker
+  - model choice
+  - caching
+
+### 7) Agentic Systems
+- what agents are
+- how agents differ from plain RAG
+- tools / function calling
+- when to use tools vs direct prompting
+- agent patterns:
+  - tool-using single agent
+  - planner-executor-verifier
+  - multi-step workflows
+- memory:
+  - short-term memory
+  - long-term memory
+- human-in-the-loop
+- approval workflows
+- failure handling:
+  - tool error
+  - malformed output
+  - retries
+  - fallbacks
+- latency and cost control:
+  - parallel tool calls
+  - early exit
+  - caching
+
+### 8) Frameworks and Orchestration
+Give a framework-neutral mental model first, then compare:
+
+- LangChain
+- LangGraph
+- LlamaIndex
+- AutoGen
+- MCP
+- A2A / ADK style patterns
+- N8N / low-code workflows
+
+Cover:
+- what category each belongs to
+- when to use it
+- major strengths
+- common misconceptions
+- where it fits in production architecture
+
+### 9) Fine-Tuning and Model Adaptation
+- training vs fine-tuning vs PEFT
+- LoRA / QLoRA intuition
+- when fine-tuning is worth it
+- domain adaptation
+- style tuning
+- task-specific tuning
+- data preparation:
+  - instruction format
+  - cleaning
+  - deduping
+  - PII removal
+- evaluation for tuned models
+- pairwise preference evaluation
+- pitfalls:
+  - overfitting
+  - catastrophic forgetting
+  - noisy datasets
+
+### 10) Inference, Deployment, LLMOps, and Monitoring
+- provider APIs vs self-hosted models
+- vLLM / TGI / Ollama high-level overview
+- batching
+- prompt/output caching
+- quantization
+- streaming responses
+- REST vs gRPC
+- canary and rollback
+- logging prompts/responses safely
+- metrics:
+  - latency
+  - token usage
+  - error rate
+  - throughput
+- experiment tracking
+- model registry concept
+- golden datasets
+- behavioral regression tests
+
+### 11) Security, Privacy, Safety, and Multi-Tenancy
+- AuthN/AuthZ basics
+- JWT / OAuth basics
+- rate limiting
+- WAF / DDoS basics
+- encryption in transit / at rest
+- PII in prompts, logs, KBs
+- RBAC
+- prompt injection
+- jailbreaks
+- data exfiltration risks
+- output filtering
+- tenant isolation:
+  - metadata filters
+  - namespaces
+  - separate indices
+- secure design thinking for enterprise RAG
+
+---
+
+## Important output requirements
+
+Please structure the answer in this order:
+
+1. **Big-picture mental map of modern GenAI systems**
+2. **Topic-by-topic deep revision notes**
+3. **How all pieces connect in production**
+4. **Trade-offs, pitfalls, and optimization strategies**
+5. **Senior interview framing**
+6. **25–35 interview Q&A**
+7. **Final Day 2 revision checklist**
+8. **One-page AI systems mental model**
+
+Make it **dense, structured, accurate, and easy to revise**.
+```
+
+---
+
+# Day 3 – Capstone Revision Prompt: System Design, Terraform, AWS, Kubernetes, Helm, Jenkins, Ansible, Frontend, Monorepo, Leadership
+
+```markdown
+# Capstone Revision – Day 3
+## System Design, Platform Engineering, Cloud Infra, CI/CD, Frontend, Monorepo, DevEx, Project Storytelling, and Leadership
+
+You are an expert **Senior AI Engineer interview coach**, **cloud architect**, **platform engineer**, and **system design mentor**.
+
+Today is **Capstone Revision Day 3** of my final 3-day revision plan for **Senior AI Engineer / Staff AI Engineer / GenAI Platform / Tech Lead** interviews.
+
+Your goal is to help me tie everything from **Day 1 to Day 37** into one final senior-level mental model:
+- architecture
+- deployment
+- operations
+- platform ownership
+- project storytelling
+- leadership
+
+---
+
+## What I want from you
+
+For all topics below:
+
+1. Explain each concept in **clear interview-focused language**.
+2. Keep the discussion centered on **real GenAI platforms**, such as:
+   - multi-tenant RAG SaaS
+   - agent platform
+   - chat-based enterprise assistant
+   - internal LLM platform
+3. For each major section, include:
+   - **core idea**
+   - **architecture relevance**
+   - **best practices**
+   - **trade-offs**
+   - **common mistakes**
+   - **what a senior/staff engineer should say**
+4. Show how the pieces connect from:
+   - git push
+   - CI pipeline
+   - container build
+   - registry
+   - infra
+   - deployment
+   - runtime observability
+   - rollback
+5. End with:
+   - **30–40 interview questions with concise answers**
+   - **2–3 full mock system design answers**
+   - **project storytelling template**
+   - **final 3-day capstone checklist**
+
+Organize the answer with **clear headings, diagrams-in-words, bullets, and revision-friendly summaries**.
+
+---
+
+## Cover ALL of these topics
+
+### 1) Senior-Level System Design for GenAI Products
+- how to think like a senior engineer
+- requirement clarification
+- functional vs non-functional requirements
+- latency, availability, scalability, cost, security, compliance
+- capacity estimation basics:
+  - QPS
+  - peak traffic
+  - storage growth
+  - bandwidth
+- API contracts
+- data model thinking
+- high-level architecture
+- async workflows
+- queues and workers
+- reliability patterns:
+  - retries
+  - circuit breakers
+  - backpressure
+  - admission control
+  - bulkheads
+- fault tolerance
+- observability
+- release safety
+- product thinking:
+  - MVP vs production
+  - business metrics vs technical metrics
+
+### 2) Productization and UI Thinking
+- turning AI capability into a product
+- chat UI patterns
+- streaming responses
+- citations and sources
+- feedback collection
+- streamlit and gradio for demos
+- multi-model playground idea
+- user experience for RAG/agent systems
+- showing errors, retries, and safety warnings
+- designing for trust and explainability
+
+### 3) Terraform and IaC
+- imperative vs declarative infra
+- why Terraform
+- HCL basics:
+  - resource
+  - data
+  - variable
+  - output
+- init / plan / apply / destroy
+- state file
+- remote state
+- S3 + DynamoDB locking concept
+- drift
+- modules
+- root vs child modules
+- locals and outputs
+- environment strategy:
+  - dev
+  - stage
+  - prod
+- workspaces vs separate state
+- naming conventions
+- Terraform for:
+  - VPC
+  - EKS
+  - RDS
+  - S3
+  - ECR
+  - Route53
+  - ACM
+- DNS, certificates, HTTPS, and release routing concepts
+
+### 4) AWS Infrastructure for GenAI Platforms
+- VPC and networking:
+  - CIDR
+  - public/private subnets
+  - NAT gateway
+  - Internet gateway
+  - security groups
+  - NACLs
+- EKS basics:
+  - control plane
+  - node groups
+  - autoscaling
+- ALB ingress integration
+- RDS for metadata/conversations
+- Redis/ElastiCache for caching/rate limiting
+- S3 for document storage
+- ECR for images
+- IAM roles
+- private/public service placement
+- request flow across AWS services
+- security and least privilege basics
+
+### 5) Kubernetes and Helm
+- pods, deployments, services, ingress
+- configmaps and secrets
+- HPA
+- readiness and liveness
+- why Kubernetes for GenAI services
+- Helm basics:
+  - charts
+  - templates
+  - values
+  - releases
+- helm install / upgrade / rollback
+- backend deployment design:
+  - FastAPI RAG/agent service
+- frontend deployment design:
+  - React/Next.js UI
+- env-specific values
+- rolling update vs blue/green
+- common K8s pitfalls in GenAI systems
+
+### 6) Jenkins CI/CD
+- Jenkins architecture:
+  - controller and agents
+- declarative pipeline
+- stages:
+  - lint
+  - test
+  - build
+  - push
+  - deploy
+- Docker build for backend/frontend
+- push to ECR
+- Helm deploy to EKS
+- managing secrets/credentials
+- environment promotion
+- smoke tests
+- rollback strategy
+- GenAI-specific checks:
+  - golden RAG tests
+  - behavioral regression tests
+  - health checks after deploy
+
+### 7) Ansible and Ops Automation
+- where Ansible fits vs Terraform
+- infra provisioning vs config management
+- idempotence
+- inventory
+- playbooks
+- tasks
+- handlers
+- modules vs raw shell
+- Jenkins agent provisioning
+- ops/bastion setup
+- installing docker, kubectl, helm, awscli
+- roles
+- ansible vault concept
+- operational use cases in GenAI platform teams
+
+### 8) Frontend for GenAI Systems
+- React vs Next.js
+- component architecture for chat apps
+- message list
+- streaming UX
+- citations display
+- upload form for documents
+- state management
+- backend API calls
+- loading/error states
+- retry UX
+- signed URL upload concept
+- tenant settings UI
+- trust/safety feedback UX
+
+### 9) Monorepo, Environment Strategy, and DevEx
+- monorepo layout:
+  - backend
+  - frontend
+  - infra
+  - shared libs
+- env vars per environment
+- local `.env` vs prod secrets
+- Terraform state separation
+- Helm values per environment
+- local dev workflow
+- mock services
+- branch strategy
+- PR flow
+- release tags
+- testing layers:
+  - unit
+  - integration
+  - smoke
+- developer experience and onboarding
+
+### 10) Full End-to-End Integration Story
+Tie together everything from Day 1–37 into one project story:
+
+- backend:
+  - FastAPI
+  - RAG
+  - agents
+  - DB
+  - Redis
+  - vector DB
+- frontend:
+  - React/Next.js chat app
+- infra:
+  - Terraform on AWS
+  - EKS
+  - RDS
+  - S3
+  - ECR
+  - Route53
+- deployment:
+  - Docker
+  - Helm
+  - Jenkins
+- operations:
+  - logs
+  - metrics
+  - rollbacks
+  - regression tests
+- security:
+  - tenant isolation
+  - secrets
+  - safe prompting
+- product:
+  - citations
+  - feedback loop
+  - cost control
+  - reliability
+
+### 11) Leadership, Ownership, and Project Storytelling
+- how to present a GenAI project in interviews
+- problem → architecture → trade-offs → impact
+- STAR format
+- technical leadership
+- influencing architecture decisions
+- managing ambiguity
+- balancing speed vs quality
+- when to choose POC vs production-grade path
+- how to explain failures and lessons learned
+- cost, security, and reliability ownership language
+
+---
+
+## Special output requirements
+
+Please structure the answer in this order:
+
+1. **Final mental model: how the whole platform fits together**
+2. **Topic-by-topic revision notes**
+3. **2–3 mock system design answers**
+   - e.g. multi-tenant RAG SaaS
+   - agent platform with tools
+   - enterprise document assistant
+4. **Trade-offs, pitfalls, and senior-level talking points**
+5. **30–40 interview Q&A**
+6. **Reusable project storytelling template**
+7. **Final capstone checklist for all Day 1–37 topics**
+8. **Last-day-before-interview cheat sheet**
+
+Make the answer **senior-level, dense, practical, and highly revision-friendly**.
+```
+
+
+---
 # Final improved 30-day ready-to-copy-paste prompts
 
 ## Day 1
