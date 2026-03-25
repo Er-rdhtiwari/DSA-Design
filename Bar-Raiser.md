@@ -16,6 +16,13 @@ I added these so you do not miss anything meaningful for a Bar Raiser round:
 * **Hands-on leadership**: how to talk like someone who still contributes in critical code paths, not only reviews and direction. The JD explicitly says this role contributes directly to code in critical areas. 
 
 Below is the **final improved ready-to-copy-paste version**.
+### One improvement I strongly recommend
+
+Add this line to every daily prompt near the top:
+
+```
+This is for a technical Bar Raiser round. Prioritize deep technical judgment, architecture trade-offs, hands-on backend/platform leadership, production readiness, and strong project follow-up questions over generic behavioral coaching.
+```
 
 ---
 
