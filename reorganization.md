@@ -14,6 +14,14 @@ The sequence is designed like a real learning ladder:
 
 **foundation → coding/problem solving → ML/LLM basics → prompting/RAG → frameworks/agents/orchestration → serving/inference/storage → cloud/infra/delivery → security/reliability/evaluation → staff-level design/storytelling**
 
+### One improvement I strongly recommend
+
+Add this line to every daily prompt near the top:
+
+```
+This is for a technical Bar Raiser round. Prioritize deep technical judgment, architecture trade-offs, hands-on backend/platform leadership, production readiness, and strong project follow-up questions over generic behavioral coaching.
+```
+
 ---
 
 # Final 15-Day Capstone Revision Plan
