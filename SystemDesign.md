@@ -49,7 +49,16 @@
 * **Ends with a mock + reusable cheat sheets**, so you’re not just learning—you’re building a repeatable interview performance script.
 
 ---
+### One improvement I strongly recommend
 
+Add this line to every daily prompt near the top:
+
+```
+This is for a technical Bar Raiser round. Prioritize deep technical judgment, architecture trade-offs, hands-on backend/platform leadership, production readiness, and strong project follow-up questions over generic behavioral coaching.
+Wherever possible, use my Project-1, Project-2, and Project-3 as examples to explain concepts, support learning, and make the material easier to understand.
+
+```
+---
 # Day 1 — System Design Method + Requirements + Capacity + APIs + Data Model (HLD core + LLD basics)
 
 ```text
