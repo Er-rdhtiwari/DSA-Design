@@ -1,3 +1,7 @@
+### Add this line at the end of each day’s prompt:
+```
+Since I already have good Python experience, please relate each important Go concept to its Python equivalent and clearly point out the main similarities, differences, and common convention changes.
+```
 
 # Day 1 Prompt — Project overview, Go setup, CLI basics
 
