@@ -1710,3 +1710,622 @@ Use each prompt like this:
 | Revision checklist                    |    15 min |
 
 **Best target:** 2.5 to 3 hours daily.
+
+---
+
+Below is a **10-day revision plan** combining your **45-day study plan + 3 project interview enhancement plan**.
+
+Use this after completing the main study plan, or use it as a **fast-track revision before interviews**. It is focused on your actual resume strengths: **Aadhaar backend scale, DPDK benchmark automation, and DPDK BenchOps Copilot GenAI/RAG platform**. 
+
+---
+
+# 10-Day Copy-Paste-Ready Revision Plan
+
+## Day 1 — Final Career Narrative + Role Positioning
+
+```text
+Act as a senior interview coach for Google, Amazon, Netflix, GenAI Platform, AI Backend, AWS GenAI Solution Architect, and ML Platform roles.
+
+Today is Day 1 of my 10-day final revision.
+
+Goal:
+Help me combine my full experience into one strong interview narrative.
+
+My 3 key projects are:
+1. Aadhaar Multi-Integration Platform — high-scale backend, Python APIs, concurrency, Redis, OTP/session handling, load testing, performance tuning, cost reduction.
+2. DPDK Automation for Network Packet Processing — Python automation, benchmark orchestration, log parsing, metric extraction, validation, reporting, repeatability.
+3. DPDK BenchOps Copilot — GenAI/RAG, LangChain, LangGraph, MCP, vector DB, LlamaIndex ingestion, Kubernetes, CI/CD, evaluation, tool calling, observability.
+
+Important instruction:
+Do not invent fake numbers. Use placeholders like [latency improvement], [cost saving %], [number of runs], [p95 latency] when exact metrics are unknown.
+
+Cover:
+1. My final career story
+2. How to explain my transition from backend → automation → GenAI platform
+3. My best positioning for Google roles
+4. My best positioning for Amazon SDE GenAI roles
+5. My best positioning for Amazon Solution Architect / TPM roles
+6. My best positioning for Netflix ML platform roles
+7. Which project to lead with for each role
+8. How to answer “Tell me about yourself”
+9. How to answer “Why are you a fit for this role?”
+10. How to answer “What is your strongest project?”
+
+Mandatory output format:
+- 5-line summary
+- Final 60-second “Tell me about yourself”
+- Final 2-minute “Tell me about yourself”
+- Role-wise positioning table
+- Project-wise strengths table
+- ASCII diagram showing career evolution
+- 10 strong interview soundbites
+- 10 weak areas I must avoid or explain carefully
+- Final resume headline suggestion
+- Final LinkedIn headline suggestion
+- DSA revision topic: Arrays + HashMap
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 2 — Aadhaar Project Final Revision: Backend Scale + Defense
+
+```text
+Act as a strict Amazon/Google senior backend interviewer.
+
+Today is Day 2 of my 10-day final revision.
+
+Focus only on my Aadhaar Multi-Integration Project.
+
+Project context:
+I worked on an in-house Aadhaar verification API for BFSI/NBFC onboarding. The project reduced third-party dependency, improved platform ownership, used Python APIs, concurrency/multithreading, Redis caching, OTP/session handling, load testing, and performance tuning. It supported peak traffic around 5–6 lakh requests/hour.
+
+Important instruction:
+Do not invent fake metrics. Use placeholders where exact numbers are unknown and teach me how to answer safely.
+
+Cover:
+1. Business problem
+2. Technical problem
+3. Before architecture
+4. After architecture
+5. Why third-party dependency was risky
+6. Why Kafka was simplified or replaced
+7. Kafka vs concurrency trade-off
+8. Python GIL explanation
+9. Thread pool, timeout, retry, backpressure
+10. Redis caching during UIDAI/upstream downtime
+11. OTP/session management
+12. Idempotency and duplicate request handling
+13. Security and compliance for Aadhaar/KYC data
+14. PII masking, encryption, access control, audit logs
+15. Observability: logs, metrics, tracing, alerts
+16. Load testing and performance tuning
+17. What I personally owned
+18. How to present this as senior ownership
+
+Mandatory output format:
+- 5-line project summary
+- 60-second Aadhaar project pitch
+- 2-minute Aadhaar project explanation
+- 5-minute technical deep dive
+- Before architecture ASCII diagram
+- After architecture ASCII diagram
+- Request lifecycle ASCII diagram
+- Failure-handling ASCII diagram
+- Pseudocode for idempotent OTP verification
+- Python script showing Redis-like cache + idempotency key + retry handling
+- Line-by-line explanation
+- 30 hard interviewer questions with strong answers
+- Table: interviewer concern → safe answer
+- Table: design decision → trade-off → alternative
+- STAR story for Ownership
+- STAR story for Dive Deep
+- STAR story for Deliver Results
+- 10 resume bullets with placeholders where needed
+- DSA revision topic: Two Pointers + Sliding Window
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 3 — DPDK Automation Final Revision: Platform + Performance Engineering
+
+```text
+Act as a strict Google/Amazon platform engineering interviewer and performance automation mentor.
+
+Today is Day 3 of my 10-day final revision.
+
+Focus only on my DPDK Automation for Network Packet Processing project.
+
+Project context:
+I worked on AMD-focused DPDK benchmark automation. The system automated benchmark execution and reporting across DPDK crypto, testpmd, L2/L3 forwarding, iperf2/iperf3, CPU SKUs, BIOS settings, and network configurations. It used Python automation, benchmark orchestration, log parsing, metric extraction, validation, comparison, and report generation.
+
+Important instruction:
+Do not invent fake numbers. Use placeholders like [manual effort reduced %], [number of workloads], [number of CPU SKUs], [reporting time reduction].
+
+Cover:
+1. Business problem
+2. What was manual before automation
+3. Why benchmark repeatability mattered
+4. High-level benchmark workflow
+5. Config-driven execution
+6. Environment readiness validation
+7. DPDK setup concepts: hugepages, NIC, NUMA, CPU pinning, BIOS profiles
+8. Benchmark execution
+9. Log collection
+10. Metric parsing
+11. Result validation
+12. Benchmark comparison logic
+13. Report generation
+14. Handling failed and partial runs
+15. Retry, timeout, cleanup, rerun strategy
+16. Reproducibility and correctness
+17. How this became the data foundation for BenchOps Copilot
+
+Mandatory output format:
+- 5-line project summary
+- 60-second DPDK Automation pitch
+- 2-minute project explanation
+- 5-minute technical deep dive
+- Benchmark workflow ASCII diagram
+- System architecture ASCII diagram
+- Manual vs automated workflow ASCII diagram
+- Failure handling ASCII diagram
+- Example benchmark config schema
+- Example result schema
+- Pseudocode for benchmark orchestration
+- Python script simulating config-driven benchmark execution, log parsing, validation, and report generation
+- Line-by-line explanation
+- 30 hard interviewer questions with strong answers
+- Table: benchmark stage → responsibility → failure handling
+- Table: metric → meaning → validation method
+- Table: design decision → trade-off → alternative
+- STAR story for Invent and Simplify
+- STAR story for Ownership
+- STAR story for Dive Deep
+- 10 resume bullets with metric placeholders
+- DSA revision topic: Stack + Queue + Heap
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 4 — BenchOps Copilot Final Revision: GenAI/RAG Architecture
+
+```text
+Act as a senior GenAI platform interviewer from Google/Amazon/Netflix.
+
+Today is Day 4 of my 10-day final revision.
+
+Focus only on my DPDK BenchOps Copilot project.
+
+Project context:
+I built/evolved a GenAI RAG + agentic workflow platform on top of DPDK benchmark automation. It ingested benchmark logs, DB JSON, tuning docs, and run metadata. It used LlamaIndex ingestion, chunking, metadata extraction, embeddings, vector DB, Postgres/S3 or MinIO, LangChain, LangGraph, MCP tools, Kubernetes, Helm, Jenkins CI/CD, evaluation metrics, tracing, retries, timeouts, and circuit breakers.
+
+Important instruction:
+Do not invent metrics. Use placeholders like [number of benchmark runs], [number of chunks], [faithfulness threshold], [citation coverage threshold], [p95 latency].
+
+Cover:
+1. Business problem: benchmark expertise did not scale
+2. Why automation alone was not enough
+3. Why RAG was chosen
+4. Why fine-tuning was not the first option
+5. Data sources
+6. Ingestion pipeline
+7. Parsing and normalization
+8. Chunking strategy
+9. Metadata schema
+10. Embedding model choice
+11. Vector DB indexing
+12. Hybrid retrieval and metadata filtering
+13. Reranking if applicable
+14. Context building
+15. Response generation with citations
+16. LangGraph workflow
+17. MCP tool calling
+18. Tools: RunQuery, LogFetch, RunDiff, CommandBuilder
+19. Verification layer
+20. Evaluation metrics
+21. Kubernetes deployment
+22. CI/CD evaluation gates
+23. Observability and tracing
+24. Security and safe tool execution
+25. Cost and latency optimization
+
+Mandatory output format:
+- 5-line project summary
+- 60-second BenchOps Copilot pitch
+- 2-minute project explanation
+- 5-minute GenAI architecture deep dive
+- End-to-end ASCII architecture diagram
+- RAG ingestion ASCII diagram
+- LangGraph workflow ASCII diagram
+- MCP tool-calling ASCII diagram
+- Evaluation pipeline ASCII diagram
+- Pseudocode for complete RAG + tool workflow
+- Python script simulating retrieval + tool call + verification + cited answer
+- Line-by-line explanation
+- Table: component → responsibility → failure mode → mitigation
+- Table: metric → meaning → why it matters
+- Strong answer: Why RAG instead of fine-tuning?
+- Strong answer: How did you reduce hallucination?
+- Strong answer: How did you make tool calling safe?
+- 30 hard interviewer questions with strong answers
+- 10 resume bullets with metric placeholders
+- DSA revision topic: Trees + Tries
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 5 — AWS Mapping + Enterprise GenAI System Design
+
+```text
+Act as an Amazon AWS GenAI Solution Architect and senior system design interviewer.
+
+Today is Day 5 of my 10-day final revision.
+
+Goal:
+Map my existing projects to AWS and prepare for enterprise GenAI system design interviews.
+
+Use my BenchOps Copilot project as the main example and redesign it using AWS services.
+
+Cover:
+1. AWS version of BenchOps Copilot
+2. S3 for document/log storage
+3. SQS for async ingestion
+4. EventBridge or Step Functions for workflow orchestration
+5. Bedrock for LLM inference
+6. Bedrock Knowledge Bases vs custom RAG
+7. OpenSearch for hybrid search
+8. DynamoDB/Postgres for metadata
+9. EKS for service deployment
+10. CloudWatch and X-Ray for observability
+11. IAM and Secrets Manager for security
+12. API Gateway and Lambda where useful
+13. SageMaker if fine-tuning/custom model hosting is needed
+14. VPC, private subnets, security groups
+15. Multi-account or multi-tenant design
+16. Cost optimization
+17. Latency optimization
+18. Reliability and failover
+19. How to explain AWS trade-offs
+20. How to answer Amazon SA-style questions
+
+Mandatory output format:
+- 5-line AWS architecture summary
+- AWS service mapping table
+- Production AWS ASCII architecture diagram
+- Multi-tenant AWS ASCII architecture diagram
+- Data flow from upload → ingestion → retrieval → answer
+- Pseudocode for AWS-based GenAI workflow
+- Python script simulating S3 upload → SQS event → retrieval → Bedrock-like response
+- Line-by-line explanation
+- Table: AWS service → role → alternative → trade-off
+- Table: failure scenario → AWS mitigation
+- 20 Amazon Solution Architect interview questions with answers
+- 10 cost optimization techniques
+- 10 security best practices
+- DSA revision topic: Binary Search + Sorting
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 6 — RAG, Search, Code Search, Evaluation Revision
+
+```text
+Act as a senior Google AI/ML GenAI and Code Search interviewer.
+
+Today is Day 6 of my 10-day final revision.
+
+Goal:
+Revise RAG, hybrid search, code search, retrieval evaluation, and search-quality debugging.
+
+Use my BenchOps Copilot project as the main reference, and also explain how similar ideas apply to code search.
+
+Cover:
+1. RAG fundamentals
+2. Document ingestion
+3. Chunking strategies
+4. Metadata filtering
+5. Embeddings
+6. Vector DBs
+7. BM25
+8. Hybrid search
+9. Reranking
+10. Code search fundamentals
+11. AST and symbol search basics
+12. Repository indexing
+13. Query understanding
+14. Retrieval quality debugging
+15. Precision, recall, F1
+16. MRR, NDCG, Hit Rate, Recall@K
+17. Context precision and context recall
+18. Faithfulness and groundedness
+19. Citation coverage
+20. Golden dataset evaluation
+21. CI evaluation gates
+
+Mandatory output format:
+- 5-line beginner-friendly revision summary
+- RAG vs search vs code search comparison table
+- Hybrid search ASCII diagram
+- Code search ASCII diagram
+- Evaluation pipeline ASCII diagram
+- Pseudocode for hybrid retrieval + reranking
+- Python script calculating precision, recall, MRR, NDCG, citation coverage, and tool success rate
+- Line-by-line explanation
+- Table: metric → formula → meaning → interview explanation
+- 25 Google-style hard questions with strong answers
+- Strong answer: How do you debug bad retrieval?
+- Strong answer: How do you improve recall without hurting precision?
+- Strong answer: Why hybrid search instead of only vector search?
+- DSA revision topic: Graph BFS/DFS + Union Find
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 7 — Production Readiness: Security, Reliability, Observability, Cost
+
+```text
+Act as a senior production AI platform interviewer.
+
+Today is Day 7 of my 10-day final revision.
+
+Goal:
+Prepare production-readiness answers for all 3 projects:
+1. Aadhaar Multi-Integration
+2. DPDK Automation
+3. DPDK BenchOps Copilot
+
+Cover:
+1. Observability: logs, metrics, traces
+2. Correlation IDs
+3. CloudWatch/X-Ray-style monitoring
+4. p95/p99 latency
+5. Error rate
+6. Throughput
+7. SLO/SLA/SLI
+8. Timeout, retry, exponential backoff, jitter
+9. Circuit breaker
+10. Bulkhead pattern
+11. Fallback design
+12. Graceful degradation
+13. Prompt injection defense
+14. Tool abuse prevention
+15. RBAC and least privilege
+16. PII-safe logging
+17. Secrets handling
+18. Multi-tenancy
+19. Rate limiting and quota
+20. Cost attribution
+21. Token cost optimization
+22. Caching strategy
+23. CI/CD, canary, rollback
+24. Incident handling
+25. Postmortem explanation
+
+Mandatory output format:
+- 5-line production-readiness summary
+- Production-readiness checklist for Aadhaar
+- Production-readiness checklist for DPDK Automation
+- Production-readiness checklist for BenchOps Copilot
+- Observability ASCII diagram
+- Reliability ASCII diagram
+- Security boundary ASCII diagram
+- Multi-tenant GenAI platform ASCII diagram
+- Pseudocode for guardrail + retry + fallback flow
+- Python script simulating request handling with logging, guardrail, retry, fallback, and metrics
+- Line-by-line explanation
+- Table: risk → mitigation → interview explanation
+- Table: production metric → why it matters → project example
+- 30 hard production-readiness questions with strong answers
+- DSA revision topic: Dynamic Programming basics
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 8 — Coding + DSA + Python/Golang Interview Revision
+
+```text
+Act as a senior coding interviewer for Google/Amazon/Netflix.
+
+Today is Day 8 of my 10-day final revision.
+
+Goal:
+Revise coding interview skills using Python as primary language and Golang as secondary exposure.
+
+Cover:
+1. How to approach coding interviews
+2. How to clarify requirements
+3. How to explain brute force first
+4. How to optimize
+5. How to dry run
+6. How to discuss time and space complexity
+7. Python coding best practices
+8. Common Python pitfalls
+9. Golang basics for backend interviews
+10. Go structs, interfaces, goroutines, channels
+11. When to mention Go in interviews
+12. DSA pattern revision:
+   - Arrays
+   - Strings
+   - HashMap
+   - Two pointers
+   - Sliding window
+   - Stack
+   - Queue
+   - Binary search
+   - Trees
+   - Graphs
+   - Heap
+   - Dynamic programming
+
+Mandatory output format:
+- 5-line coding revision summary
+- DSA pattern table: pattern → when to use → complexity → example problem
+- Python interview checklist
+- Golang interview checklist
+- Common coding mistakes table
+- 5 mini coding problems with hints only
+- 3 medium coding problems with full Python solutions
+- 1 concurrency-style problem with Python solution
+- 1 small Golang HTTP/concurrency example
+- Line-by-line explanation for all solutions
+- Mock interviewer feedback after each solution
+- Final DSA weak-area checklist
+- End-of-day revision checklist
+```
+
+---
+
+## Day 9 — Behavioral + STAR Stories From My 3 Projects
+
+```text
+Act as an Amazon Bar Raiser, Google behavioral interviewer, and senior leadership interview coach.
+
+Today is Day 9 of my 10-day final revision.
+
+Goal:
+Create final behavioral interview stories from my 3 projects:
+1. Aadhaar Multi-Integration
+2. DPDK Automation
+3. DPDK BenchOps Copilot
+
+Important instruction:
+Do not invent metrics. Use placeholders where exact numbers are unknown.
+
+Cover behavioral themes:
+1. Ownership
+2. Dive Deep
+3. Invent and Simplify
+4. Deliver Results
+5. Customer Obsession
+6. Bias for Action
+7. Earn Trust
+8. Learn and Be Curious
+9. Disagree and Commit
+10. Handling ambiguity
+11. Handling production failure
+12. Conflict with stakeholders
+13. Performance optimization
+14. Security or compliance concern
+15. Technical trade-off decision
+16. Mentoring or leading others
+17. Cross-functional collaboration
+18. Failure and learning
+
+Mandatory output format:
+- 5-line behavioral preparation summary
+- STAR framework explanation
+- 12 STAR stories using my actual project themes
+- For each STAR story:
+  - Situation
+  - Task
+  - Action
+  - Result
+  - What I learned
+  - Follow-up questions
+  - Strong answers
+- Table: leadership principle → best project to use → story angle
+- 20 behavioral questions with short answer strategy
+- 10 “tell me about a time” prompts
+- 10 one-line leadership soundbites
+- Red flags to avoid while answering
+- Final answer: “What is your biggest achievement?”
+- Final answer: “Tell me about a failure”
+- Final answer: “Tell me about a difficult technical decision”
+- DSA revision topic: Mixed DSA
+- One medium DSA question with Python solution
+- End-of-day revision checklist
+```
+
+---
+
+## Day 10 — Final Full Mock Interview Day
+
+```text
+Act as a complete final mock interviewer panel for Google, Amazon, Netflix, GenAI Platform, AI Backend, AWS Solution Architect, and ML Platform roles.
+
+Today is Day 10 of my 10-day final revision.
+
+Goal:
+Conduct a full final revision and mock interview using my 3 projects:
+1. Aadhaar Multi-Integration Platform
+2. DPDK Automation for Network Packet Processing
+3. DPDK BenchOps Copilot
+
+Important instruction:
+Be strict. Challenge weak areas. Do not invent metrics. Use placeholders where metrics are unknown and teach me how to answer honestly.
+
+Conduct the mock in 6 sections:
+
+Section 1: Introduction
+- Tell me about yourself
+- Why this role?
+- Which project are you most proud of?
+
+Section 2: Project Deep Dive
+- Aadhaar project deep dive
+- DPDK Automation deep dive
+- BenchOps Copilot deep dive
+- Hard follow-up questions for each
+
+Section 3: GenAI/System Design
+Design a production-grade enterprise RAG + agentic AI platform on AWS for multiple teams.
+
+Section 4: Backend/System Design
+Design a high-scale Aadhaar-style verification API with OTP, caching, retries, rate limits, and observability.
+
+Section 5: Coding
+Ask one medium DSA problem and solve it in Python with explanation.
+
+Section 6: Behavioral
+Ask Amazon/Google-style STAR questions based on ownership, failure, ambiguity, and trade-offs.
+
+Mandatory output format:
+- Final 60-second introduction
+- Final 2-minute introduction
+- Project selection strategy by role
+- 3 project summaries in interview-ready form
+- Full system design answer for enterprise RAG platform
+- Full system design answer for high-scale verification API
+- ASCII diagrams for both system designs
+- Pseudocode for both systems
+- Python script for one key component from each system
+- One medium DSA problem with full Python solution
+- 20 final technical questions with answers
+- 20 final behavioral questions with answer strategy
+- Final resume bullet improvement list
+- Final weak-area checklist
+- Final 7-day maintenance plan after this 10-day revision
+- Final confidence-building summary
+```
+
+---
+
+# Best Way to Use This 10-Day Plan
+
+Use each prompt for one full revision day.
+
+| Daily Block                        |      Time |
+| ---------------------------------- | --------: |
+| Read generated notes               | 45–60 min |
+| Practice project explanation aloud |    30 min |
+| Study ASCII diagram + pseudocode   |    30 min |
+| Run or rewrite Python script       |    45 min |
+| DSA problem                        |    45 min |
+| Final revision checklist           |    15 min |
+
+Best target: **3 to 3.5 hours per day**.
+
