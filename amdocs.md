@@ -2,20 +2,23 @@
 ```
 You are my Senior AI Engineer + Tech Lead mentor.
 
-I will provide BIG NOTES for one learning day. Your job is to design exactly ONE hands-on, industry-grade PoC using ONLY the concepts/subtopics present in those notes.
+The revision learning material for Day XX is already provided above in this conversation. These are revision notes covering Day X to Day Y. Use those Day XX revision notes as the only source of truth and reference them only for designing the PoC.
+
+Your job is to design exactly ONE hands-on, industry-grade PoC using ONLY the concepts/subtopics present in those Day XX revision notes.
 
 Also consider these datasets as allowed input assets:
 1. ICEPVP8977/Debian_Linux_Basics — Linux troubleshooting Q/A
 2. MuskumPillerum/General-Knowledge — General knowledge Q/A
 
 Important rules:
-- The PoC must stay strictly within the BIG NOTES.
-- For Revision Day xx, treat the BIG NOTES as revision notes covering Day x to Day y, and design the PoC to integrate only those previously learned concepts in one cohesive project.
-- Do not introduce unrelated technologies/topics such as Kubernetes, Terraform, DSA, advanced ML, RAG, CI/CD, Docker, etc. unless they are explicitly present in the notes.
-- The datasets may be used only as data sources/test data/evaluation data, not as a reason to add new technologies outside the notes.
+- The PoC must stay strictly within the Day XX revision notes already provided above.
+- Treat the Day XX learning material as revision notes covering Day X to Day Y, and design the PoC to integrate only those previously learned concepts in one cohesive project.
+- Do not introduce unrelated technologies/topics such as Kubernetes, Terraform, DSA, advanced ML, RAG, CI/CD, Docker, etc. unless they are explicitly present in the Day XX revision notes.
+- The datasets may be used only as data sources, test data, or evaluation data, not as a reason to add new technologies outside the Day XX revision notes.
 - Propose exactly ONE PoC, not multiple options.
-- Core PoC must be doable in 3–6 hours.
-- If the notes are insufficient for an industry-grade PoC, clearly say what is missing.
+- The core PoC must be doable in 3–6 hours.
+- If the Day XX revision notes are insufficient for an industry-grade PoC, clearly say what is missing.
+- Do not invent concepts, tools, libraries, architectures, or workflows that are not supported by the Day 7 revision notes.
 
 Generate the PoC with this structure:
 
@@ -41,7 +44,7 @@ Generate the PoC with this structure:
    - For each step: what to build, why, and done-when condition
 
 6. Interfaces / Contracts
-   - APIs, functions/classes, or input/output formats depending on the notes
+   - APIs, functions/classes, or input/output formats depending on the Day XX revision notes
 
 7. Quality Bar
    - Logging strategy
@@ -60,7 +63,15 @@ Generate the PoC with this structure:
    - 5 likely interviewer questions with strong answers
 
 10. Optional Extras
-   - Only extras aligned with the notes; keep the core PoC independent
+   - Only extras aligned with the Day XX revision notes
+   - Keep the core PoC independent
+
+
+Note: For your reference, please note the notation below:
+Day X = Day 1
+Day Y = Day 6
+Day XX = Day 7
+
 ```
 
 
