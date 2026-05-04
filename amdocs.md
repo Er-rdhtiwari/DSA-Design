@@ -2,76 +2,132 @@
 ```
 You are my Senior AI Engineer + Tech Lead mentor.
 
-The revision learning material for Day XX is already provided above in this conversation. These are revision notes covering Day X to Day Y. Use those Day XX revision notes as the only source of truth and reference them only for designing the PoC.
+The Day XX revision notes are already provided above in this conversation. These notes revise concepts from Day X to Day Y.
 
-Your job is to design exactly ONE hands-on, industry-grade PoC using ONLY the concepts/subtopics present in those Day XX revision notes.
-
-Also consider these datasets as allowed input assets:
-1. ICEPVP8977/Debian_Linux_Basics — Linux troubleshooting Q/A
-2. MuskumPillerum/General-Knowledge — General knowledge Q/A
-
-Important rules:
-- The PoC must stay strictly within the Day XX revision notes already provided above.
-- Treat the Day XX learning material as revision notes covering Day X to Day Y, and design the PoC to integrate only those previously learned concepts in one cohesive project.
-- Do not introduce unrelated technologies/topics such as Kubernetes, Terraform, DSA, advanced ML, RAG, CI/CD, Docker, etc. unless they are explicitly present in the Day XX revision notes.
-- The datasets may be used only as data sources, test data, or evaluation data, not as a reason to add new technologies outside the Day XX revision notes.
-- Propose exactly ONE PoC, not multiple options.
-- The core PoC must be doable in 3–6 hours.
-- If the Day XX revision notes are insufficient for an industry-grade PoC, clearly say what is missing.
-- Do not invent concepts, tools, libraries, architectures, or workflows that are not supported by the Day 7 revision notes.
-
-Generate the PoC with this structure:
-
-1. PoC Overview
-   - Title
-   - Problem statement
-   - Success criteria
-   - What it demonstrates in interviews
-
-2. Scope Mapping
-   - Table: Note topic/subtopic → Where implemented in the PoC
-
-3. Architecture
-   - Simple ASCII diagram
-   - Components and responsibilities
-
-4. Repo Structure
-   - Production-like folder tree
-   - Key files and purpose
-
-5. Implementation Plan
-   - 7–12 ordered steps
-   - For each step: what to build, why, and done-when condition
-
-6. Interfaces / Contracts
-   - APIs, functions/classes, or input/output formats depending on the Day XX revision notes
-
-7. Quality Bar
-   - Logging strategy
-   - Error handling strategy
-   - Configuration strategy
-   - Testing strategy
-   - Minimum 5 explicit test cases
-
-8. Run Instructions
-   - Exact local commands
-   - Expected output
-
-9. Interview Talk Track
-   - 60-second explanation
-   - 3 architecture decisions with trade-offs
-   - 5 likely interviewer questions with strong answers
-
-10. Optional Extras
-   - Only extras aligned with the Day XX revision notes
-   - Keep the core PoC independent
-
-
-Note: For your reference, please note the notation below:
+Notation:
 Day X = Day 1
 Day Y = Day 6
 Day XX = Day 7
 
+Create exactly ONE hands-on, learning-focused, industry-style Python PoC using ONLY the concepts present in the Day XX revision notes.
+
+The goal is to help me learn by building a clean local Python project that demonstrates:
+- Python fundamentals
+- project structure
+- environment hygiene
+- configuration
+- logging
+- error handling
+- testing
+- maintainable code
+- foundation for future GenAI backend work
+
+Rules:
+- Run locally only. No cloud infrastructure.
+- Do not use Docker, Kubernetes, Terraform, CI/CD, advanced ML, RAG, vector DBs, or unrelated tools unless explicitly present in the Day XX notes.
+- Use only concepts/tools/libraries supported by the Day XX notes.
+- Generate exactly ONE PoC.
+- Core project should be doable in 3–6 hours.
+- If the notes are insufficient, clearly say what is missing.
+- Do not make this interview-focused.
+- Do not generate practice questions.
+
+Allowed datasets:
+1. ICEPVP8977/Debian_Linux_Basics
+2. MuskumPillerum/General-Knowledge
+
+Dataset rules:
+- Use datasets only as local sample data, test data, or evaluation data.
+- If data is needed, include a small local sample file so the project runs without downloads.
+
+Available output sections:
+
+PART 1: LEARNING-FOCUSED PoC SUMMARY
+
+Include:
+1. Title
+2. What I will learn
+3. What the project does
+4. Concept mapping table:
+   Day XX topic/subtopic -> Where used in project -> Why it matters
+5. Simple ASCII architecture diagram
+6. Repo structure with file purposes
+7. Step-by-step build plan
+8. Testing strategy with at least 5 test cases
+9. Learning notes and common mistakes
+
+PART 2: COMPLETE READY-TO-COPY-PASTE IMPLEMENTATION
+
+Generate the full project as files.
+
+Rules for PART 2:
+- Show every file with relative path.
+- Include complete code for every file.
+- Use markdown code fences for each file.
+- Do not use placeholders like "...", "add code here", or "same as above".
+- Include README.md.
+- Include .env.example.
+- Include requirements.txt.
+- Include .gitignore.
+- Include tests.
+- Include sample local data if needed.
+- Project must run end-to-end without code changes.
+
+The project must support this local flow:
+
+1. Create virtual environment:
+   python -m venv .venv
+
+2. Activate virtual environment:
+   macOS/Linux:
+   source .venv/bin/activate
+
+   Windows:
+   .venv\Scripts\activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Copy environment file:
+   cp .env.example .env
+
+5. Run tests:
+   pytest
+
+6. Run the app:
+   python -m <app_entrypoint>
+
+README.md must include:
+- Project purpose
+- What I will learn
+- Setup instructions
+- Environment variables
+- How to run tests
+- How to run the app
+- Example input/output
+- Troubleshooting
+- Learning recap
+
+If generating PART 2 or BOTH, include at the end:
+1. Final verification checklist
+2. Expected test output
+3. Expected app output
+4. Learning recap
+
+Remember:
+Generate exactly ONE learning-focused PoC using only Day XX revision note concepts.
+
+Generation control:
+
+Before generating anything, ask me to choose one option:
+
+A. Generate PART 1 only — Learning-focused PoC summary/design
+B. Generate PART 2 only — Complete ready-to-copy-paste implementation
+C. Generate BOTH — Part 1 followed by Part 2
+
+Do not generate the PoC until I choose A, B, or C.
+
+When I choose an option, follow only that option.
 ```
 
 
