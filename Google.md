@@ -2328,4 +2328,63 @@ Use each prompt for one full revision day.
 | Final revision checklist           |    15 min |
 
 Best target: **3 to 3.5 hours per day**.
+---
+# Final 100-Day Sequence
+
+Use this exact order:
+
+|            Days | Follow                          | Focus                                                                                                      |
+| --------------: | ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+|    **Days 1–7** | **Plan 1 Days 1–7**             | Go backend foundation, Slack/Tekton/Kubernetes project architecture, CLI Notification Engine POC           |
+|   **Days 8–14** | **Plan 2 Days 1–7**             | Python backend, FastAPI, API contracts, AI document Q&A backend skeleton                                   |
+|  **Days 15–21** | **Plan 1 Days 8–14**            | Shell scripting, Kubernetes, Tekton, debugging, failure notification simulator                             |
+|  **Days 22–28** | **Plan 2 Days 8–14**            | AWS foundation, Bedrock, S3, SQS/SNS/EventBridge, EKS, Go refresher                                        |
+|  **Days 29–35** | **Plan 1 Days 15–21**           | Go backend APIs, interfaces, concurrency, REST, testing, microservice POC                                  |
+|  **Days 36–42** | **Plan 2 Days 15–21**           | LLMs, prompts, embeddings, vector DBs, RAG, hybrid search                                                  |
+|  **Days 43–49** | **Plan 1 Days 22–28**           | SQL, Redis, queues, reliability, outbox, event-driven backend                                              |
+|  **Days 50–56** | **Plan 2 Days 22–28**           | LangChain, LangGraph, agents, MCP, code search, IR/RAG metrics                                             |
+|  **Days 57–63** | **Plan 1 Days 29–35**           | Docker, Kubernetes production, Helm, CI/CD, GitOps                                                         |
+|  **Days 64–70** | **Plan 2 Days 29–35**           | ML platform, SageMaker, fine-tuning, model serving, multimodal AI                                          |
+|  **Days 71–77** | **Plan 1 Days 36–42**           | Observability, incidents, security, cloud infra, Terraform, HA/DR                                          |
+|  **Days 78–84** | **Plan 2 Days 36–42**           | GenAI production readiness, reliability, security, multi-tenancy, cost optimization                        |
+|  **Days 85–87** | **Plan 1 Days 43–45**           | IBM-style system design, full revision, backend/cloud mock interview                                       |
+|  **Days 88–90** | **Plan 2 Days 43–45**           | Amazon SA/TPM thinking, enterprise RAG system design, final GenAI interview pack                           |
+| **Days 91–100** | **Plan 2 10-Day Revision Plan** | Project-based interview polishing: Aadhaar, DPDK Automation, BenchOps Copilot, behavioral, DSA, final mock |
+
+Plan 1 is your backend/cloud/Go/Kubernetes foundation. 
+Plan 2 is your Python/AWS/GenAI/RAG/AI-platform and final revision layer. 
+
+## Copy version
+
+```text
+Days 1–7:    Plan 1 Days 1–7
+Days 8–14:   Plan 2 Days 1–7
+
+Days 15–21:  Plan 1 Days 8–14
+Days 22–28:  Plan 2 Days 8–14
+
+Days 29–35:  Plan 1 Days 15–21
+Days 36–42:  Plan 2 Days 15–21
+
+Days 43–49:  Plan 1 Days 22–28
+Days 50–56:  Plan 2 Days 22–28
+
+Days 57–63:  Plan 1 Days 29–35
+Days 64–70:  Plan 2 Days 29–35
+
+Days 71–77:  Plan 1 Days 36–42
+Days 78–84:  Plan 2 Days 36–42
+
+Days 85–87:  Plan 1 Days 43–45
+Days 88–90:  Plan 2 Days 43–45
+
+Days 91–100: Plan 2 10-Day Final Revision Plan
+```
+
+## Simple rule
+
+```text
+First 90 days = learn + build
+Last 10 days = revise + convert into interview answers
+```
 
