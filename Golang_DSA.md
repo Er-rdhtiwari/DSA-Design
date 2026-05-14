@@ -1,3 +1,17 @@
+## Add this instruction to Plan 1 daily prompts
+
+For the IBM Cloud-related days, add this line:
+
+```
+Also include an “IBM Cloud Mapping” section:
+- explain which IBM Cloud service maps to today’s topic
+- compare it briefly with the AWS equivalent
+- explain where it fits in my backend/cloud project
+- give one IBM Cloud interview question with a strong answer
+- include one small architecture example using IBM Cloud services
+```
+---
+
 The current 45-day plan includes mostly **beginner to intermediate DSA**, which is usually enough for many backend/cloud software developer interviews. It includes arrays, strings, maps, two pointers, stack/queue, recursion, sorting, binary search, trees, graphs, heap, DP basics, union find, topological sort, greedy, intervals, bit manipulation, backtracking, and mixed revision.
 
 But if by **advanced DSA** you mean strong interview/competitive-programming-level topics, then the plan should explicitly add more depth.
