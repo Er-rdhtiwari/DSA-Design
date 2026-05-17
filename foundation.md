@@ -1,3 +1,13 @@
+# Answer Of the Day
+
+```
+Solve this Python todays practice question with full code.
+
+Explain the thought process step by step in simple beginner-friendly language, then give pseudocode, full Python solution, and a short line-by-line explanation.
+
+```
+
+
 # Week 1: Password and Bank Account Basics
 
 ## Day 1 — Save Password
