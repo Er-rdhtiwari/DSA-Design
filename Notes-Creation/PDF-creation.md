@@ -1,7 +1,7 @@
-SOURCE_FOLDER="Notes"
+SOURCE_FOLDER="DSA-Design/foundation"
 PDF_OUTPUT_FOLDER="${SOURCE_FOLDER}/pdfs"
 SOURCE_FILE_PATTERN="Day*.md"
-EXPECTED_FILE_COUNT=11
+EXPECTED_FILE_COUNT=29
 VALIDATION_REPORT="${PDF_OUTPUT_FOLDER}/pdf-validation-report.md"
 
 Create one PDF for each Markdown note matching `${SOURCE_FILE_PATTERN}` inside `${SOURCE_FOLDER}`.
