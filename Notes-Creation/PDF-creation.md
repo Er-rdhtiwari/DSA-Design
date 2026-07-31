@@ -1,7 +1,7 @@
 SOURCE_FOLDER="DSA-Design/cloud"
 PDF_OUTPUT_FOLDER="${SOURCE_FOLDER}/pdfs"
 SOURCE_FILE_PATTERN="Day*.md"
-EXPECTED_FILE_COUNT=11
+EXPECTED_FILE_COUNT=14
 VALIDATION_REPORT="${PDF_OUTPUT_FOLDER}/pdf-validation-report.md"
 
 Create one PDF for each Markdown note matching `${SOURCE_FILE_PATTERN}` inside `${SOURCE_FOLDER}`.
@@ -19,7 +19,7 @@ Create one PDF for each Markdown note matching `${SOURCE_FILE_PATTERN}` inside `
 day-01.md → day-01.pdf
 ```
 
-7. Use A4 portrait formatting:
+7. Use A4 portrait formatting by default:
 
 * Body font: 11 pt
 * H1: 16 pt bold
@@ -31,6 +31,7 @@ day-01.md → day-01.pdf
 * Black text on a white background
 * Page numbers only
 * Do not add headers, footers, titles, watermarks, or extra content
+* Pages containing large Mermaid diagrams may use A4 landscape when required for readability; keep surrounding narrative pages portrait
 
 8. Preserve all:
 
@@ -40,10 +41,20 @@ day-01.md → day-01.pdf
 * tables
 * code blocks
 * ASCII diagrams
+* Mermaid diagrams and flows
 * links
 * special characters
 * blank-line structure
 * section order
+
+For Mermaid code fences:
+
+* Detect them before applying normal code-block rendering.
+* Render each block as an actual SVG or equivalent vector diagram, never as plain code or as a different replacement diagram.
+* Treat the Mermaid definition as the source of truth. Preserve every node, label, subgraph, branch label, and directed connection without inventing, removing, or changing flow semantics.
+* If automatic rendering is too wide or dense, use a dedicated A4 landscape page and/or a print-friendly row layout. Reflow only the visual arrangement; do not shrink labels until they become unreadable.
+* Reuse the existing source heading for the diagram page. Do not add titles, legends, annotations, or other content not present in the Markdown.
+* Keep diagram text readable, prevent overlapping nodes or connectors, and ensure the complete diagram remains inside the 18 mm margins.
 
 9. Ensure no content is:
 
@@ -66,6 +77,7 @@ day-01.md → day-01.pdf
 * validation status
 * formatting issue detected
 * formatting adjustment applied
+* Mermaid rendering mode, diagram page orientation, and any visual reflow applied, when applicable
 * confirmation that source content was unchanged
 
 13. Validate that:
@@ -73,6 +85,9 @@ day-01.md → day-01.pdf
 * every matching Markdown file has exactly one PDF
 * every PDF is readable
 * headings, tables, code blocks, diagrams, and special characters render correctly
+* Mermaid fences render as diagrams rather than literal code
+* every rendered Mermaid diagram contains the same nodes, labels, subgraphs, branch labels, and directed connections as its source block
+* Mermaid diagrams are readable at normal zoom and contain no clipped, overlapping, missing, duplicated, or reordered elements
 * no source file was modified
 * no generated PDF is empty
 * generated filenames match their source filenames
@@ -82,9 +97,9 @@ day-01.md → day-01.pdf
 Follow this order:
 
 1. Discover all matching Markdown files
-2. Record their names and checksums
+2. Record their names, checksums, and Mermaid block inventory
 3. Create `${PDF_OUTPUT_FOLDER}`
-4. Generate each PDF separately
+4. Generate each PDF separately, rendering Mermaid blocks independently
 5. Validate each generated PDF
 6. Compare the source-file checksums to confirm they are unchanged
 7. Create `${VALIDATION_REPORT}`
