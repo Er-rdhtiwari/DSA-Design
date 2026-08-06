@@ -22,10 +22,10 @@ day-01.md → day-01.pdf
 
 7. Use A4 portrait formatting by default:
 
-* Body font: 11 pt
+* Body font: 12 pt
 * H1: 16 pt bold
 * H2: 14 pt bold
-* H3: 12 pt bold
+* H3: 13 pt bold
 * Code blocks and tables: 10.5 pt
 * Line spacing: 1.3
 * Margins: 18 mm on all sides
