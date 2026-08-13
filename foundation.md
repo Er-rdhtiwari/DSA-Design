@@ -1884,6 +1884,2016 @@ Do not provide the full Python solution.
 
 ---
 
-## Final note
+Below is the **Day 61–120 continuation**. I preserved the core mechanics of the original plan: one small step at a time, explicit connection to prior learning, simple exercises, easy edge cases, pseudocode before implementation, hint-only practice, and small revision exercises rather than large weekly projects. The original curriculum also deliberately transitions from procedural Python into OOP before its final mini-project, so Day 61 begins by using those Python foundations in a real project environment rather than restarting Python syntax. 
 
-This improved version keeps every day beginner-friendly, adds missing foundation topics, and avoids making revision days too large.
+## Day 61–120 roadmap
+
+| Days    | Focus                                                        |
+| ------- | ------------------------------------------------------------ |
+| 61–63   | Developer foundations                                        |
+| 64–70   | Git + data collection                                        |
+| 71–77   | NumPy, Pandas, data cleaning/preprocessing                   |
+| 78–84   | Visualization, EDA, train/test preparation, SQL introduction |
+| 85–91   | SQL, MySQL, MongoDB, Redis, algebra                          |
+| 92–98   | Statistics, probability, calculus for ML                     |
+| 99–105  | ML foundations + Linear Regression                           |
+| 106–112 | Supervised ML + model evaluation                             |
+| 113–119 | Unsupervised ML, RL, scikit-learn projects, FastAPI          |
+| 120     | Final ML + FastAPI beginner capstone                         |
+
+---
+
+# Days 61–63 — Developer Foundations
+
+## Day 61 — pip and Virtual Environments
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 61: pip and Virtual Environments** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: `pip`, packages, and virtual environments
+3. Connection: I completed my first 60 days of Python. Today I will learn how Python projects install and isolate external packages.
+4. Important topics: package, library, `pip`, installing packages, `venv`, activate/deactivate
+5. Foundational notes in simple language
+6. Explain why virtual environments are useful
+7. Easy example
+8. Problem statement: Create a small Python project folder, create a virtual environment, activate it, install one simple package, and verify that it is installed.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly command-line pseudocode/steps
+12. Suggested solving approach: simple developer workflow
+13. Easy edge cases: package already installed, virtual environment not activated
+14. Expected commands and expected result
+15. Hint only
+
+Keep command-line explanations very simple.
+
+Do not provide a large project or advanced package-management concepts.
+```
+
+---
+
+## Day 62 — Project Structure and requirements.txt
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 62: Basic Python Project Structure and requirements.txt** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: project folders and `requirements.txt`
+3. Connection: Yesterday I created a virtual environment and installed a package. Today I will organize a small Python project.
+4. Important topics: project folder, Python files, data folder, `requirements.txt`, dependencies
+5. Foundational notes
+6. Explain the difference between Python code and project dependencies
+7. Easy example of a very small folder structure
+8. Problem statement: Create a small project containing `main.py`, a `data` folder, and `requirements.txt`. Add one installed package to the requirements file.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode/steps
+12. Suggested solving approach: simple project organization
+13. Easy edge cases: missing file, wrong folder, empty requirements file
+14. Expected folder structure
+15. Hint only
+
+Do not introduce advanced packaging such as Poetry, Docker, or publishing packages.
+```
+
+---
+
+## Day 63 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 63: Weekly Revision — Developer Basics** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 61–62
+3. Connection: This combines package management, virtual environments, project structure, and dependencies.
+4. Revision summary of Days 61–62
+5. Important topics: `pip`, `venv`, project folder, dependencies, `requirements.txt`
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Create a very small Python project, create and activate a virtual environment, install one package, create `main.py`, and save the dependency in `requirements.txt`.
+9. Concepts used
+10. Thought process
+11. Pseudocode-style setup steps
+12. Suggested solving approach: simple developer workflow
+13. Easy edge cases: environment not active, missing requirements file
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep the revision exercise very small.
+```
+
+---
+
+# Days 64–70 — Git and Data Collection
+
+## Day 64 — Git and GitHub Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 64: Git and GitHub Fundamentals** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: Git, repository, commit, and GitHub
+3. Connection: I now have a small Python project. Today I will learn how developers track changes to that project.
+4. Important topics: Git repository, `git init`, status, add, commit, GitHub repository, push concept
+5. Foundational notes
+6. Explain Git vs GitHub simply
+7. Easy example
+8. Problem statement: Initialize Git inside a small Python project, check status, add `main.py`, and create the first commit. Explain conceptually how the project can later be pushed to GitHub.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly command steps
+12. Suggested solving approach: local Git first
+13. Easy edge cases: file not tracked, nothing to commit
+14. Expected result
+15. Hint only
+
+Do not introduce branching strategies, rebasing, merge conflicts, or advanced Git.
+```
+
+---
+
+## Day 65 — Read and Write CSV Files
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 65: CSV Files in Python** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: reading and writing CSV data
+3. Connection: I already learned normal text files. Today I will work with structured rows and columns.
+4. Important topics: CSV, rows, columns, header, `csv` module
+5. Foundational notes
+6. Explain how CSV differs from a normal text file
+7. Easy example
+8. Problem statement: Create a small CSV file containing product name and price. Read the file and print each product.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: functional approach
+13. Easy edge cases: empty CSV file, missing value in one row
+14. Expected file and output
+15. Hint only
+
+Do not use Pandas yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 66 — Excel Files
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 66: Basic Excel File Handling in Python** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: Excel workbook and worksheet basics
+3. Connection: Yesterday I worked with CSV rows and columns. Today I will see how similar tabular data can be stored in Excel.
+4. Important topics: workbook, worksheet, row, column, cell, basic Excel library usage
+5. Foundational notes
+6. Explain CSV vs Excel simply
+7. Easy example
+8. Problem statement: Create or open a very small Excel workbook containing product name and price and read a few values.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: simple file-handling approach
+13. Easy edge cases: empty worksheet, missing cell
+14. Expected input/output
+15. Hint only
+
+Explain any external package installation simply.
+
+Do not introduce formulas, styling, charts, or advanced Excel automation.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 67 — JSON Data
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 67: JSON Data in Python** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: JSON and Python dictionaries
+3. Connection: I already understand dictionaries and structured files. Today I will store dictionary-like data as JSON.
+4. Important topics: JSON object, key-value pair, list, `json.load()`, `json.dump()`
+5. Foundational notes
+6. Explain JSON vs Python dictionary
+7. Easy example
+8. Problem statement: Create simple customer data containing name and city, save it to JSON, read it back, and print the values.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: functional approach
+13. Easy edge cases: empty JSON file, missing key
+14. Expected JSON and output
+15. Hint only
+
+Do not introduce complex nested JSON yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 68 — Basic API Data Collection
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 68: Basic API Data Collection with Python** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: API request and JSON response
+3. Connection: Yesterday I learned JSON. Many web APIs return data in JSON format.
+4. Important topics: API, URL, request, response, status code, JSON response, `requests`
+5. Foundational notes
+6. Explain client and server very simply
+7. Easy example using a safe public/sample API concept
+8. Problem statement: Send one GET request to a simple API, check whether the request succeeded, convert the response to JSON, and print one value.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: simple request-response flow
+13. Easy edge cases: internet unavailable, unsuccessful status code, missing JSON key
+14. Expected flow/output
+15. Hint only
+
+Do not introduce authentication, pagination, async APIs, or advanced networking.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 69 — Debugging Data-Collection Programs
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 69: Basic Debugging and Error Handling for Data Programs** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: debugging file and API programs
+3. Connection: I already learned basic try-except and manual debugging. Today I will reuse those skills when reading external data.
+4. Important topics: `try`, `except`, print debugging, file errors, invalid JSON, request failure
+5. Foundational notes
+6. Explain why external data can fail even when our Python syntax is correct
+7. Easy example
+8. Problem statement: Create a simple data-loading function and handle one possible failure gracefully instead of crashing.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: functional approach
+13. Easy edge cases: file missing, malformed input, unavailable data
+14. Expected successful and failed output
+15. Hint only
+
+Do not introduce complex exception hierarchies or logging frameworks.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 70 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 70: Weekly Revision — Git and Data Collection** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 64–69
+3. Connection: This combines project tracking and basic structured data collection.
+4. Revision summary of Days 64–69
+5. Important topics: Git, CSV, Excel, JSON, API requests, basic error handling
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Create a tiny Python project that reads a small JSON or CSV dataset and prints a few values. Track the project using Git and handle one simple data-loading error.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: functional approach
+13. Easy edge cases: empty data, missing file
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep the revision program very small.
+
+Do not provide the full Python solution.
+```
+
+---
+
+# Days 71–77 — NumPy, Pandas and Preprocessing
+
+## Day 71 — NumPy Arrays
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 71: NumPy Fundamentals — Arrays** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: NumPy arrays
+3. Connection: I previously stored multiple numbers in Python lists. Today I will learn NumPy arrays, which are commonly used in data science and ML.
+4. Important topics: NumPy, array, shape, dtype, one-dimensional array
+5. Foundational notes
+6. Explain Python list vs NumPy array simply
+7. Easy example
+8. Problem statement: Create a NumPy array containing five product prices and print the array, its length/shape, and data type.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: NumPy approach
+13. Easy edge cases: empty array, decimal values
+14. Expected output
+15. Hint only
+
+Do not introduce advanced multidimensional operations yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 72 — NumPy Indexing and Arithmetic
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 72: NumPy Indexing and Basic Arithmetic** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: NumPy indexing, slicing, and arithmetic
+3. Connection: Yesterday I created a NumPy array. Today I will access and calculate with its values.
+4. Important topics: indexing, slicing, addition, multiplication, `sum()`, `mean()`
+5. Foundational notes
+6. Explain element-wise operations simply
+7. Easy example
+8. Problem statement: Create an array of five sales values, select some values, increase every value by a small amount, and calculate the total and average.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: NumPy approach
+13. Easy edge cases: empty array, zeros
+14. Expected output
+15. Hint only
+
+Do not introduce broadcasting rules in depth.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 73 — Pandas DataFrames
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 73: Pandas Fundamentals — DataFrames** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: Pandas Series and DataFrame basics
+3. Connection: NumPy helped me work with arrays. Today I will work with labeled rows and columns.
+4. Important topics: Pandas, Series idea, DataFrame, rows, columns, column names
+5. Foundational notes
+6. Explain NumPy array vs DataFrame simply
+7. Easy example
+8. Problem statement: Create a small DataFrame containing product name, price, and stock. Print the DataFrame and one selected column.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: Pandas approach
+13. Easy edge cases: empty DataFrame, zero stock
+14. Expected output
+15. Hint only
+
+Do not introduce advanced indexing yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 74 — Load and Inspect Data with Pandas
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 74: Loading and Inspecting Data with Pandas** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: reading CSV, Excel, and JSON into DataFrames
+3. Connection: I already learned these file formats separately. Today Pandas will give me one common tabular interface.
+4. Important topics: `read_csv()`, `read_excel()` concept, JSON loading idea, `head()`, `shape`, `columns`, `dtypes`
+5. Foundational notes
+6. Explain why inspecting data should happen before changing it
+7. Easy example
+8. Problem statement: Load a small CSV dataset into a DataFrame and inspect its first rows, dimensions, columns, and data types.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: Pandas approach
+13. Easy edge cases: empty dataset, unexpected column
+14. Expected output
+15. Hint only
+
+Do not perform complex cleaning yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 75 — Missing Values, Duplicates and Data Types
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 75: Basic Data Cleaning with Pandas** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: missing values, duplicates, and incorrect data types
+3. Connection: Yesterday I inspected a dataset. Today I will identify and fix a few common data-quality problems.
+4. Important topics: missing value, `isna()`, `dropna()` or `fillna()`, duplicates, `drop_duplicates()`, data type conversion
+5. Foundational notes
+6. Explain why cleaning decisions depend on the meaning of the data
+7. Easy example
+8. Problem statement: Create or load a tiny DataFrame containing one missing value, one duplicate row, and one incorrectly typed numeric value. Perform simple cleaning.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: Pandas approach
+13. Easy edge cases: all values missing, no duplicates
+14. Expected before-and-after result
+15. Hint only
+
+Keep cleaning rules very simple.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 76 — Encoding, Scaling and Normalization
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 76: Basic ML Preprocessing — Encoding and Scaling** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: categorical encoding, scaling, and normalization
+3. Connection: Yesterday I cleaned raw data. Today I will learn how some data must be transformed before machine learning.
+4. Important topics: numerical feature, categorical feature, simple encoding, standardization idea, normalization idea
+5. Foundational notes
+6. Explain why a model cannot always directly use text categories
+7. Explain scaling vs normalization at a beginner level
+8. Easy examples
+9. Problem statement: Use a tiny dataset containing age and city. Convert the city category into numeric form and demonstrate one simple scaled numerical feature.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Suggested solving approach: simple preprocessing
+14. Easy edge cases: unknown category, constant numeric values
+15. Hint only
+
+Do not introduce advanced encoders or mathematical derivations.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 77 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 77: Weekly Revision — NumPy, Pandas and Data Cleaning** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 71–76
+3. Connection: This combines arrays, DataFrames, inspection, cleaning, encoding, and scaling.
+4. Revision summary of Days 71–76
+5. Important topics: NumPy arrays, Pandas DataFrames, missing values, duplicates, data types, categorical encoding, scaling
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Load or create a tiny customer DataFrame, inspect it, fix one missing value and one duplicate, and prepare one categorical column for later ML use.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: Pandas-based approach
+13. Easy edge cases: empty DataFrame, no missing values
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep the exercise very small.
+
+Do not provide the full Python solution.
+```
+
+---
+
+# Days 78–84 — Visualization, EDA and SQL Introduction
+
+## Day 78 — Matplotlib Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 78: Matplotlib Fundamentals** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: basic data visualization with Matplotlib
+3. Connection: I can now store and clean numerical data. Today I will visualize it.
+4. Important topics: figure, axes idea, line chart, bar chart, title, axis labels
+5. Foundational notes
+6. Explain when a line chart and bar chart are useful
+7. Easy example
+8. Problem statement: Create a small list or DataFrame containing monthly sales and display a simple chart with a title and labels.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: Matplotlib
+13. Easy edge cases: one data point, zero values
+14. Expected chart description
+15. Hint only
+
+Do not introduce advanced chart customization.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 79 — Seaborn Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 79: Seaborn Fundamentals** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: statistical visualization with Seaborn
+3. Connection: Yesterday I created a basic Matplotlib chart. Today I will use Seaborn with DataFrames.
+4. Important topics: Seaborn, DataFrame-based plotting, bar plot, scatter plot, distribution plot idea
+5. Foundational notes
+6. Explain Seaborn vs Matplotlib simply
+7. Easy example
+8. Problem statement: Create a small DataFrame containing advertising spend and sales and display a simple scatter plot.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: Seaborn
+13. Easy edge cases: repeated values, very small dataset
+14. Expected chart description
+15. Hint only
+
+Do not introduce advanced statistical plots.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 80 — Exploratory Data Analysis
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 80: Beginner Exploratory Data Analysis (EDA)** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: Exploratory Data Analysis
+3. Connection: I can inspect, clean, and visualize data. Today I will combine those steps to understand a dataset.
+4. Important topics: shape, columns, data types, missing values, summary statistics, distributions, relationships
+5. Foundational notes
+6. Explain the purpose of EDA
+7. Easy EDA workflow
+8. Problem statement: Perform a tiny EDA on a simple sales dataset. Inspect the data, calculate basic summaries, and create one useful visualization.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: Pandas + simple visualization
+13. Easy edge cases: missing values, constant column
+14. Expected observations
+15. Hint only
+
+Do not introduce advanced statistical testing.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 81 — Train and Test Data Preparation
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 81: Basic Train/Test Data Preparation** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: preparing features and labels for ML
+3. Connection: I cleaned and explored datasets. Today I will learn how data is prepared before training a machine-learning model.
+4. Important topics: feature columns, label/target column, `X`, `y`, training data, test data
+5. Foundational notes
+6. Explain why we should not train and evaluate on exactly the same data
+7. Easy example
+8. Problem statement: Use a tiny house dataset with size and price. Separate the input feature from the target and split the rows conceptually into training and test sets.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: simple data-preparation approach
+13. Easy edge cases: extremely small dataset, missing target
+14. Expected data shapes
+15. Hint only
+
+Do not train a machine-learning model yet.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 82 — Database Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 82: Database Fundamentals** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: databases, tables, rows, columns, and keys
+3. Connection: Until now I stored data mainly in files and DataFrames. Today I will learn how applications persist structured data in databases.
+4. Important topics: database, table, row, column, primary key, relational database
+5. Foundational notes
+6. Explain file storage vs database storage
+7. Easy example using customers and orders
+8. Problem statement: Design a very small `customers` table containing customer ID, name, and city. Do not create a complex database.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly table design
+12. Suggested solving approach: relational database concept
+13. Easy edge cases: duplicate ID, empty value
+14. Expected table
+15. Hint only
+
+Do not introduce normalization theory or advanced database architecture.
+```
+
+---
+
+## Day 83 — SQL SELECT and WHERE
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 83: SQL Fundamentals — SELECT and WHERE** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: querying database data
+3. Connection: Yesterday I learned tables and rows. Today I will retrieve selected rows using SQL.
+4. Important topics: `SELECT`, `FROM`, `WHERE`, comparison operators, `ORDER BY`
+5. Foundational notes
+6. Explain a SQL query in plain English
+7. Easy example
+8. Problem statement: Given a simple products table, write SQL queries to show all products, products above a certain price, and products ordered by price.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode before SQL
+12. Suggested solving approach: SQL
+13. Easy edge cases: no matching rows, equal values
+14. Expected result table
+15. Hint only
+
+Do not introduce complicated subqueries or optimization.
+```
+
+---
+
+## Day 84 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 84: Weekly Revision — Visualization, EDA and Data Preparation** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 78–83
+3. Connection: This combines visualization, EDA, ML data preparation, and the first database queries.
+4. Revision summary of Days 78–83
+5. Important topics: Matplotlib, Seaborn, EDA, features, labels, train/test idea, database tables, SELECT, WHERE
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Inspect a small product dataset, calculate a simple summary, create one chart, identify possible features/target, and write one SQL SELECT query for similar product data.
+9. Concepts used
+10. Thought process
+11. Pseudocode
+12. Suggested solving approach: simple data-analysis approach
+13. Easy edge cases: empty result, missing value
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Do not provide a large combined project.
+```
+
+---
+
+# Days 85–91 — Databases and Math Foundations
+
+## Day 85 — SQL CRUD and JOIN Basics
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 85: SQL CRUD and Basic JOIN** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: INSERT, UPDATE, DELETE, and basic JOIN
+3. Connection: Yesterday I learned to read rows with SELECT. Today I will change data and combine two simple tables.
+4. Important topics: INSERT, UPDATE, DELETE, INNER JOIN concept, foreign key idea
+5. Foundational notes
+6. Explain CRUD simply
+7. Explain why JOIN is useful
+8. Easy example using customers and orders
+9. Problem statement: Add one customer, update one city, and conceptually join customers with their orders.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly SQL steps
+13. Easy edge cases: missing customer, customer without an order
+14. Expected results
+15. Hint only
+
+Keep SQL very basic.
+```
+
+---
+
+## Day 86 — MySQL and Python
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 86: MySQL Basics and Connecting Python to MySQL** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: MySQL and Python database connection
+3. Connection: I know basic SQL statements. Today I will see how a Python application can send SQL to a relational database.
+4. Important topics: MySQL, database server, connection, cursor concept, query, result
+5. Foundational notes
+6. Explain client/database-server communication simply
+7. Easy example
+8. Problem statement: Connect conceptually to a small MySQL database, run one SELECT query, and print returned rows.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: Python database client
+13. Easy edge cases: connection failure, empty result
+14. Expected flow
+15. Hint only
+
+Explain setup at a beginner level.
+
+Do not introduce connection pooling, transactions in depth, or production configuration.
+```
+
+---
+
+## Day 87 — MongoDB Basics
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 87: MongoDB Basics** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: document databases and MongoDB
+3. Connection: MySQL stores relational tables. Today I will learn another way to store dictionary-like documents.
+4. Important topics: NoSQL idea, database, collection, document, `_id`, insert, find
+5. Foundational notes
+6. Compare a MongoDB document with a Python dictionary
+7. Compare MongoDB with a relational table at a basic level
+8. Easy example
+9. Problem statement: Store a simple product document containing name, price, and stock and retrieve it.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Easy edge cases: document not found, missing field
+14. Expected document/result
+15. Hint only
+
+Do not introduce aggregation pipelines, sharding, or replication.
+```
+
+---
+
+## Day 88 — Redis Basics
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 88: Redis Basics** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: key-value storage and caching
+3. Connection: I learned relational tables and document databases. Today I will learn a simple key-value data store.
+4. Important topics: Redis, key, value, GET, SET, cache concept, expiration concept
+5. Foundational notes
+6. Explain Redis vs MySQL/MongoDB simply
+7. Explain what a cache is
+8. Easy example
+9. Problem statement: Store a simple product price using a key, read it back, and explain how caching could avoid repeatedly reading the database.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Easy edge cases: key does not exist, expired key concept
+14. Expected result
+15. Hint only
+
+Do not introduce Redis clusters, streams, pub/sub, or advanced data structures.
+```
+
+---
+
+## Day 89 — Basic Algebra for Machine Learning
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 89: Basic Algebra for Machine Learning** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: variables, equations, functions, and simple linear relationships
+3. Connection: I already use variables in Python. Today I will see the mathematical meaning of variables used in ML formulas.
+4. Important topics: variable, constant, equation, coefficient, function, linear equation
+5. Foundational notes
+6. Explain `y = mx + b` using a simple real-world example
+7. Easy numerical example
+8. Problem statement: Given a simple formula for delivery cost or house price, calculate the output for a few input values.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly mathematical steps
+12. Connection to future Linear Regression
+13. Easy edge cases: x = 0, coefficient = 0
+14. Expected calculations
+15. Hint only
+
+Keep mathematics at school-algebra level.
+```
+
+---
+
+## Day 90 — Vectors and Matrices
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 90: Vectors and Matrices for Machine Learning** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: vectors and matrices
+3. Connection: NumPy arrays can represent mathematical vectors and matrices used by ML models.
+4. Important topics: scalar, vector, matrix, rows, columns, shape
+5. Foundational notes
+6. Explain a feature vector using one customer or house
+7. Explain a data matrix using multiple observations
+8. Easy example
+9. Problem statement: Represent three houses with two numerical features each as vectors inside a matrix and identify its dimensions.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode/NumPy representation
+13. Easy edge cases: one feature, one observation
+14. Expected matrix and shape
+15. Hint only
+
+Do not introduce eigenvalues or matrix decompositions yet.
+```
+
+---
+
+## Day 91 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 91: Weekly Revision — Databases and Math Introduction** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 85–90
+3. Connection: This combines basic databases with the mathematics needed before ML.
+4. Revision summary of Days 85–90
+5. Important topics: SQL CRUD, JOIN, MySQL, MongoDB, Redis, algebra, vectors, matrices
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Use a tiny customer example to identify how the data could appear in a SQL table, MongoDB document, Redis key-value pair, and ML feature vector.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode/conceptual steps
+12. Suggested solving approach: conceptual comparison
+13. Easy edge cases
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep this conceptual and small.
+```
+
+---
+
+# Days 92–98 — Statistics, Probability and Calculus
+
+## Day 92 — Mean, Median, Variance and Standard Deviation
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 92: Descriptive Statistics** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: mean, median, variance, and standard deviation
+3. Connection: I can represent numerical datasets. Today I will summarize how their values behave.
+4. Important topics: mean, median, spread, variance, standard deviation
+5. Foundational notes
+6. Explain each concept intuitively before formulas
+7. Easy numerical example
+8. Problem statement: Given five monthly sales numbers, calculate the mean and median and explain what variance and standard deviation tell us.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly calculation steps
+12. Show how Python/NumPy could calculate them conceptually
+13. Easy edge cases: all values equal, one value
+14. Expected calculations
+15. Hint only
+
+Avoid advanced statistical theory.
+```
+
+---
+
+## Day 93 — Probability Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 93: Probability Fundamentals** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: probability and simple events
+3. Connection: Statistics summarized observed data. Probability helps describe uncertainty about possible outcomes.
+4. Important topics: experiment, outcome, event, probability from 0 to 1, complement
+5. Foundational notes
+6. Explain probability using coins, dice, or simple business examples
+7. Easy example
+8. Problem statement: Calculate simple probabilities for a small set of possible outcomes.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly formulas and calculations
+12. Explain percentage vs probability
+13. Easy edge cases: impossible event, certain event
+14. Expected calculations
+15. Hint only
+
+Do not introduce advanced conditional probability yet.
+```
+
+---
+
+## Day 94 — Probability Distributions
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 94: Basic Probability Distributions** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: probability distributions and normal distribution
+3. Connection: Yesterday I learned probabilities of individual events. Today I will learn how probability can be distributed across many possible values.
+4. Important topics: random variable idea, distribution, discrete vs continuous idea, normal distribution
+5. Foundational notes
+6. Explain a distribution using simple examples
+7. Explain bell curve intuitively
+8. Easy example
+9. Problem statement: Look at a small group of values and explain conceptually where values near the center and far from the center would appear in a distribution.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly visual explanation
+13. Easy edge cases
+14. Expected interpretation
+15. Hint only
+
+Do not introduce probability density formulas or advanced distributions.
+```
+
+---
+
+## Day 95 — Central Limit Theorem
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 95: Central Limit Theorem — Beginner Introduction** in simple language.
+
+Include:
+
+1. Day number
+2. Topic name: Central Limit Theorem
+3. Connection: Yesterday I learned distributions. Today I will learn why averages from repeated samples often behave predictably.
+4. Important topics: population, sample, sample mean, repeated samples, sampling distribution
+5. Foundational notes
+6. Explain the Central Limit Theorem intuitively before any formula
+7. Use a very small visual or ASCII explanation
+8. Easy example
+9. Problem statement: Imagine repeatedly taking small samples of customer spending and calculating their averages. Explain what happens to those averages conceptually.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly steps
+13. Easy edge cases/conceptual limitations
+14. Expected interpretation
+15. Hint only
+
+Do not turn this into a mathematical proof.
+```
+
+---
+
+## Day 96 — Derivatives
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 96: Derivatives for Machine Learning** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: derivative and rate of change
+3. Connection: ML models often try to reduce an error function. Derivatives help tell us how that error changes.
+4. Important topics: function, slope, rate of change, derivative
+5. Foundational notes
+6. Explain derivative visually and intuitively
+7. Easy example using a simple function
+8. Problem statement: Given a simple changing quantity, explain whether its slope is positive, negative, or zero and what that means.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly mathematical steps
+12. Connection to model optimization
+13. Easy edge cases: flat slope, negative slope
+14. Expected interpretation
+15. Hint only
+
+Avoid advanced differentiation rules.
+```
+
+---
+
+## Day 97 — Gradients and Gradient Descent
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 97: Gradients and Gradient Descent — Beginner Introduction** in simple language.
+
+Include:
+
+1. Day number
+2. Topic name: gradient and gradient descent
+3. Connection: Yesterday I learned derivatives for one changing variable. Today I will learn how ML uses gradients to reduce error.
+4. Important topics: loss/error, derivative, gradient, learning rate idea, iterative update
+5. Foundational notes
+6. Explain gradient descent using the hill/downhill analogy
+7. Easy numerical/conceptual example
+8. Problem statement: Start from a simple parameter value and conceptually show how repeated small updates can move toward lower error.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Connection to future Linear Regression and other models
+13. Easy edge cases: step too large, step too small
+14. Expected conceptual result
+15. Hint only
+
+Do not introduce vector calculus or derive complex formulas.
+```
+
+---
+
+## Day 98 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 98: Weekly Revision — Statistics, Probability and Calculus** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 92–97
+3. Connection: These concepts form the basic mathematical foundation for machine learning.
+4. Revision summary of Days 92–97
+5. Important topics: mean, median, variance, standard deviation, probability, distributions, CLT, derivatives, gradients
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Use a tiny numerical dataset to calculate a simple average, discuss its spread, explain one probability concept, and describe how a gradient could help reduce model error.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly steps
+12. Suggested solving approach: conceptual + simple calculations
+13. Easy edge cases
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep calculations easy.
+```
+
+---
+
+# Days 99–105 — Machine Learning Foundations
+
+## Day 99 — What Is Machine Learning?
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 99: Machine Learning Fundamentals** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: Machine Learning, features, labels, and workflow
+3. Connection: I now understand basic data handling and ML mathematics. Today I will connect them into the idea of machine learning.
+4. Important topics: machine learning, dataset, example/observation, feature, label/target, model, prediction
+5. Foundational notes
+6. Explain traditional rules vs machine learning simply
+7. Explain supervised and unsupervised learning at a very high level
+8. Easy example such as predicting house price
+9. Problem statement: Given a simple house dataset, identify observations, features, and the label.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly ML workflow
+13. Easy edge cases: missing feature, unavailable label
+14. Expected identification
+15. Hint only
+
+Do not train a model yet.
+```
+
+---
+
+## Day 100 — Training, Validation and Test Data
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 100: Training, Validation and Test Data** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: train, validation, and test datasets
+3. Connection: Yesterday I learned features, labels, and models. Today I will learn how data is separated during model development.
+4. Important topics: training set, validation set, test set, unseen data, generalization
+5. Foundational notes
+6. Explain the role of each dataset using a simple analogy
+7. Easy example
+8. Problem statement: Given 100 imaginary records, explain conceptually how they could be separated into training, validation, and test groups.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Explain why test data should not guide training decisions
+13. Easy edge cases: very small dataset
+14. Expected split explanation
+15. Hint only
+
+Do not introduce advanced resampling yet.
+```
+
+---
+
+## Day 101 — Overfitting and Underfitting
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 101: Overfitting and Underfitting** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: underfitting, overfitting, and generalization
+3. Connection: Yesterday I learned why we keep unseen validation/test data. Today I will learn one major reason we need it.
+4. Important topics: training performance, test performance, model complexity, underfitting, overfitting
+5. Foundational notes
+6. Explain both using simple analogies
+7. Easy example
+8. Problem statement: Compare three hypothetical models using training and test scores and identify which may be underfitting, reasonable, or overfitting.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly decision steps
+12. Suggested solving approach: conceptual analysis
+13. Easy edge cases
+14. Expected classification
+15. Hint only
+
+Do not introduce advanced regularization mathematics yet.
+```
+
+---
+
+## Day 102 — Bias–Variance Tradeoff
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 102: Bias–Variance Tradeoff — Beginner Introduction** in simple language.
+
+Include:
+
+1. Day number
+2. Topic name: bias and variance
+3. Connection: Yesterday I learned underfitting and overfitting. Bias and variance help explain those two problems.
+4. Important topics: high bias, high variance, simple model, complex model, generalization
+5. Foundational notes
+6. Connect high bias with underfitting
+7. Connect high variance with overfitting
+8. Easy analogy and example
+9. Problem statement: Given a few simple descriptions of model behavior, classify them as likely high-bias or high-variance situations.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly decision process
+13. Easy edge cases
+14. Expected classification
+15. Hint only
+
+Do not introduce mathematical bias-variance decomposition.
+```
+
+---
+
+## Day 103 — Feature Engineering Basics
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 103: Feature Engineering Basics** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: creating useful features
+3. Connection: I know models learn from features. Today I will learn that useful features can sometimes be created from existing raw data.
+4. Important topics: raw feature, derived feature, categorical feature, date-derived feature, feature selection idea
+5. Foundational notes
+6. Explain why better features can help a model
+7. Easy examples
+8. Problem statement: Given transaction date, amount, and customer age, suggest a few simple derived features such as month or amount category.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Explain why features must be available at prediction time
+13. Easy edge cases: missing input, useless/redundant feature
+14. Expected transformed dataset
+15. Hint only
+
+Do not introduce automated feature-selection algorithms.
+```
+
+---
+
+## Day 104 — Linear Regression
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 104: Linear Regression** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: supervised learning and Linear Regression
+3. Connection: I understand features, labels, train/test data, and gradients. Today I will train my first simple regression model.
+4. Important topics: supervised learning, regression, continuous target, line of best fit, prediction, coefficient, intercept
+5. Foundational notes
+6. Connect the model with `y = mx + b`
+7. Easy example such as house size → house price
+8. Problem statement: Use a tiny dataset with one input feature and one continuous target. Train a basic Linear Regression model and make one prediction.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: scikit-learn
+13. Easy edge cases: tiny dataset, unusual input
+14. Expected prediction flow
+15. Hint only
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 105 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 105: Weekly Revision — Machine Learning Foundations** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 99–104
+3. Connection: This combines the basic ML lifecycle with my first supervised model.
+4. Revision summary of Days 99–104
+5. Important topics: ML, feature, label, train/validation/test, overfitting, underfitting, bias, variance, feature engineering, Linear Regression
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Given a tiny house dataset, identify features and target, describe a sensible data split, mention one overfitting risk, create one simple feature, and explain how Linear Regression would be used.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: conceptual + scikit-learn workflow
+13. Easy edge cases
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Do not create a large ML project.
+```
+
+---
+
+# Days 106–112 — Supervised ML and Evaluation
+
+## Day 106 — Logistic Regression
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 106: Logistic Regression** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: binary classification with Logistic Regression
+3. Connection: Linear Regression predicts continuous numbers. Today I will predict categories such as yes/no.
+4. Important topics: classification, binary class, probability idea, predicted class, Logistic Regression
+5. Foundational notes
+6. Explain regression vs classification
+7. Easy example such as customer churn yes/no
+8. Problem statement: Use a tiny dataset containing one or two customer features and a binary label. Train a basic Logistic Regression model and make one prediction.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: scikit-learn
+13. Easy edge cases: only one class in tiny data, unusual input
+14. Expected prediction
+15. Hint only
+
+Do not explain logistic mathematics in depth.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 107 — K-Nearest Neighbors
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 107: K-Nearest Neighbors (KNN)** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: K-Nearest Neighbors classification
+3. Connection: Yesterday Logistic Regression learned a classification boundary. Today I will classify a point using nearby examples.
+4. Important topics: neighbor, distance idea, `k`, majority vote, classification
+5. Foundational notes
+6. Explain KNN visually or with a simple analogy
+7. Easy example
+8. Problem statement: Given a few simple two-feature points from two classes, explain how a new point could be classified using its nearest neighbors.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: scikit-learn after conceptual reasoning
+13. Easy edge cases: tie, very small `k`
+14. Expected classification
+15. Hint only
+
+Do not introduce advanced distance metrics.
+```
+
+---
+
+## Day 108 — Naive Bayes
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 108: Naive Bayes — Beginner Introduction** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: probability-based classification
+3. Connection: I already learned basic probability. Today I will see how probability can be used for classification.
+4. Important topics: class probability, evidence idea, conditional probability intuition, Naive Bayes assumption
+5. Foundational notes
+6. Explain the word “naive” simply
+7. Easy example such as simple spam/not-spam classification
+8. Problem statement: Use a tiny conceptual dataset to explain how evidence can make one class more likely than another.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Show a simple scikit-learn workflow conceptually
+13. Easy edge cases
+14. Expected classification explanation
+15. Hint only
+
+Do not derive Bayes theorem in depth.
+```
+
+---
+
+## Day 109 — Decision Tree and Random Forest
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 109: Decision Trees and Random Forest Basics** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: Decision Tree and Random Forest
+3. Connection: Previous classifiers used formulas, probability, or neighbors. Today I will learn prediction using a sequence of simple decisions.
+4. Important topics: root, split, branch, leaf, Decision Tree, multiple trees, Random Forest
+5. Foundational notes
+6. Explain a Decision Tree using simple if-else thinking from my early Python days
+7. Explain Random Forest as many trees working together
+8. Easy example
+9. Problem statement: Build or conceptually train a tiny Decision Tree classifier and explain how a Random Forest extends the idea.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Suggested solving approach: scikit-learn
+14. Easy edge cases: very deep tree, small dataset
+15. Hint only
+
+Do not introduce tree-splitting mathematics in depth.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 110 — Classification Evaluation Metrics
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 110: Classification Model Evaluation** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: confusion matrix, accuracy, precision, recall, and F1 score
+3. Connection: I can train classification models. Today I will learn how to measure whether their predictions are useful.
+4. Important topics: true positive, true negative, false positive, false negative, confusion matrix, accuracy, precision, recall, F1
+5. Foundational notes
+6. Explain every metric using one simple scenario
+7. Easy confusion-matrix example with small numbers
+8. Problem statement: Given actual and predicted labels for a small dataset, build a confusion matrix and interpret accuracy, precision, recall, and F1 at a beginner level.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly calculation steps
+12. Explain why accuracy alone can sometimes be misleading
+13. Easy edge cases
+14. Expected interpretation
+15. Hint only
+
+Keep formulas simple.
+```
+
+---
+
+## Day 111 — Regression Metrics and Cross-Validation
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 111: Regression Evaluation and Cross-Validation Basics** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: MAE, MSE, RMSE, and cross-validation
+3. Connection: Yesterday I evaluated classifiers. Today I will evaluate numerical predictions such as house prices.
+4. Important topics: prediction error, MAE, MSE, RMSE, fold, cross-validation
+5. Foundational notes
+6. Explain MAE, MSE, and RMSE intuitively before formulas
+7. Explain cross-validation using a simple dataset-rotation analogy
+8. Easy example
+9. Problem statement: Given a few actual and predicted values, calculate or interpret simple regression errors and explain how basic cross-validation would reuse training data.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly calculation/pseudocode
+13. Easy edge cases: perfect prediction, one very large error
+14. Expected interpretation
+15. Hint only
+
+Do not introduce advanced model-selection procedures.
+```
+
+---
+
+## Day 112 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 112: Weekly Revision — Supervised ML and Evaluation** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 106–111
+3. Connection: This combines several beginner supervised models with the metrics used to evaluate them.
+4. Revision summary of Days 106–111
+5. Important topics: Logistic Regression, KNN, Naive Bayes, Decision Tree, Random Forest, confusion matrix, accuracy, precision, recall, F1, MAE, MSE, RMSE, cross-validation
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Given one simple classification problem and one regression problem, choose an appropriate model type and identify suitable evaluation metrics.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: conceptual model selection
+13. Easy edge cases
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Keep the revision conceptual and small.
+```
+
+---
+
+# Days 113–119 — Unsupervised ML, RL, Practical ML and FastAPI
+
+## Day 113 — Clustering and K-Means
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 113: Clustering and K-Means** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: unsupervised learning and K-Means clustering
+3. Connection: Supervised learning used labels. Today I will learn what we can do when useful labels are not available.
+4. Important topics: unsupervised learning, cluster, centroid, `k`, assignment, iteration
+5. Foundational notes
+6. Explain clustering using a customer-grouping example
+7. Explain K-Means step by step without heavy mathematics
+8. Easy example
+9. Problem statement: Use a tiny two-feature customer dataset and group the points conceptually or using basic K-Means.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Suggested solving approach: scikit-learn
+14. Easy edge cases: poor choice of `k`, very small dataset
+15. Hint only
+
+Do not introduce advanced clustering metrics.
+```
+
+---
+
+## Day 114 — DBSCAN
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 114: DBSCAN Clustering — Beginner Introduction** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: density-based clustering
+3. Connection: Yesterday K-Means created a fixed number of clusters. Today I will learn a different clustering idea based on dense groups of nearby points.
+4. Important topics: density, neighborhood, `eps` idea, minimum samples idea, cluster, noise/outlier
+5. Foundational notes
+6. Explain DBSCAN visually and intuitively
+7. Compare DBSCAN with K-Means at a beginner level
+8. Easy example
+9. Problem statement: Given a few two-dimensional points, identify conceptually which could form dense groups and which could be noise.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Easy edge cases: everything becomes noise, everything becomes one cluster
+14. Expected interpretation
+15. Hint only
+
+Do not introduce mathematical density theory.
+```
+
+---
+
+## Day 115 — PCA and Association Learning
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 115: PCA and Association Learning — Beginner Concepts** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: dimensionality reduction and association learning
+3. Connection: I learned clustering using multiple features. Today I will see two additional unsupervised-learning ideas.
+4. Important topics: dimension, feature, dimensionality reduction, PCA intuition, association/rule idea
+5. Foundational notes
+6. Explain PCA as keeping important information using fewer dimensions, without heavy mathematics
+7. Explain association learning using a simple shopping-basket example
+8. Easy examples
+9. Problem statement: Given a dataset with several related numerical features, explain why PCA might reduce dimensions. Then identify one simple possible product association from shopping baskets.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly conceptual pseudocode
+13. Easy edge cases
+14. Expected interpretation
+15. Hint only
+
+Keep association learning conceptual only.
+
+Do not explain eigenvectors or advanced Apriori mathematics.
+```
+
+---
+
+## Day 116 — Reinforcement Learning and Q-Learning Introduction
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 116: Reinforcement Learning Fundamentals and Q-Learning Introduction** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: Reinforcement Learning and very basic Q-Learning
+3. Connection: Supervised learning learns from labels and unsupervised learning discovers structure. Today I will learn about learning through actions and rewards.
+4. Important topics: agent, environment, state, action, reward, policy, episode, Q-value idea
+5. Foundational notes
+6. Explain the RL interaction loop
+7. Use an easy grid or game analogy
+8. Explain a Q-table conceptually
+9. Problem statement: Create a tiny environment with a few states and actions and identify the agent, states, actions, and rewards. Show conceptually how a Q-value could improve after receiving a reward.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Easy edge cases: negative reward, no immediate reward
+14. Expected conceptual result
+15. Hint only
+
+Do not implement deep reinforcement learning.
+
+Do not introduce neural networks.
+```
+
+---
+
+## Day 117 — Scikit-learn Pipelines and Kaggle Workflow
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 117: Scikit-learn Pipelines and a Beginner Kaggle Workflow** in beginner-friendly machine learning.
+
+Include:
+
+1. Day number
+2. Topic name: practical end-to-end ML workflow
+3. Connection: I learned preprocessing, models, and evaluation separately. Today I will connect them into a small repeatable workflow.
+4. Important topics: scikit-learn estimator, preprocessing, `fit()`, `predict()`, pipeline concept, Kaggle dataset, train/test workflow
+5. Foundational notes
+6. Explain why pipelines help keep preprocessing and model steps together
+7. Explain a beginner Kaggle workflow: download dataset → inspect → clean → split → train → evaluate
+8. Easy example
+9. Problem statement: Choose a small beginner-friendly tabular dataset and design a tiny pipeline containing preprocessing and one simple model.
+10. Concepts used
+11. Thought process
+12. Beginner-friendly pseudocode
+13. Suggested solving approach: scikit-learn Pipeline
+14. Easy edge cases: missing values, categorical column
+15. Hint only
+
+Do not introduce competitions, ensembles, hyperparameter optimization, or leaderboard tricks.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 118 — FastAPI Fundamentals
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 118: FastAPI Fundamentals** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: REST APIs with FastAPI
+3. Connection: Earlier I consumed an external API. Today I will create a simple API of my own.
+4. Important topics: REST API, client, server, HTTP, GET, POST concept, request, response, JSON, FastAPI, endpoint, path parameter, query parameter
+5. Foundational notes
+6. Explain API request → Python function → response using an ASCII flow
+7. Easy FastAPI example
+8. Problem statement: Create a tiny FastAPI application with one GET endpoint. Add either a path parameter or query parameter and return a JSON response.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: FastAPI
+13. Easy edge cases: missing query value, invalid path value
+14. Expected request and JSON response
+15. Hint only
+
+Do not introduce authentication, databases, async architecture, Docker, or deployment.
+
+Do not provide the full Python solution.
+```
+
+---
+
+## Day 119 — Weekly Revision
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 119: Weekly Revision — Unsupervised ML, RL, Pipelines and FastAPI** in beginner-friendly language.
+
+Include:
+
+1. Day number
+2. Topic name: revision of Days 113–118
+3. Connection: This week moved from model concepts into a small practical ML application workflow.
+4. Revision summary of Days 113–118
+5. Important topics: K-Means, DBSCAN, PCA, association learning, reinforcement learning, Q-Learning idea, scikit-learn Pipeline, Kaggle workflow, FastAPI
+6. Foundational notes
+7. Easy example
+8. Revision problem statement: Given a small dataset, explain whether clustering could be useful, describe one simple ML pipeline, and create the design for one FastAPI endpoint that accepts data and returns a simple JSON result.
+9. Concepts used
+10. Thought process
+11. Beginner-friendly pseudocode
+12. Suggested solving approach: conceptual ML + API flow
+13. Easy edge cases
+14. Common mistakes to avoid
+15. 3 to 5 quick self-check questions
+16. Hint only
+
+Do not create the final ML API yet.
+```
+
+---
+
+# Day 120 — Final Beginner Data/ML Project
+
+## Day 120 — ML Model + FastAPI Mini Project
+
+### Ready-to-copy prompt
+
+```text
+Teach me **Day 120: Final Beginner Python, Data Science and Machine Learning Mini Project** in beginner-friendly Python.
+
+Include:
+
+1. Day number
+2. Topic name: simple end-to-end ML model exposed through FastAPI
+3. Connection: This combines my Day 1–120 journey: Python foundations, developer tools, data handling, Pandas, visualization, databases, mathematics, machine learning, scikit-learn, and FastAPI.
+4. Revision summary of the major skills from Days 61–119
+5. Important topics:
+   - project structure
+   - virtual environment and requirements
+   - Pandas
+   - basic data cleaning
+   - features and label
+   - train/test split
+   - one simple supervised ML model
+   - model evaluation
+   - prediction
+   - FastAPI
+   - JSON request/response
+6. Foundational notes
+7. Easy architecture diagram such as:
+
+CSV dataset
+    ↓
+Pandas
+    ↓
+Clean data
+    ↓
+Features + label
+    ↓
+Train/test split
+    ↓
+Simple model
+    ↓
+Evaluate
+    ↓
+Prediction function
+    ↓
+FastAPI endpoint
+    ↓
+JSON response
+
+8. Final problem statement:
+   Build a very small ML prediction application.
+
+   Use a simple tabular dataset with only a few columns.
+
+   The program should:
+   - load the data
+   - perform only necessary basic cleaning
+   - separate features and target
+   - split train/test data
+   - train one beginner-friendly model such as Linear Regression or Logistic Regression
+   - calculate one or two appropriate evaluation metrics
+   - create a simple prediction function
+   - expose that prediction through one FastAPI endpoint
+   - accept a few input values
+   - return the prediction as JSON
+
+   Keep the project intentionally small.
+
+9. Concepts used
+10. Thought process from raw data to API prediction
+11. Beginner-friendly pseudocode for the complete flow
+12. Suggested solving approach: scikit-learn + FastAPI
+13. Easy edge cases:
+    - missing input
+    - invalid numeric input
+    - unexpected category
+    - model cannot make prediction
+14. Common mistakes to avoid
+15. 5 quick self-check questions
+16. Hint only
+
+Do not provide the complete final solution.
+
+Do not introduce Docker, cloud deployment, authentication, Kubernetes, deep learning, MLOps, or production architecture.
+
+The goal is to prove that I understand the complete beginner workflow, not to build a production system.
+```
+
+---
+
+## Progression after Day 120
+
+The resulting learning path is now:
+
+```text
+Days 1–60
+Core Python
+    ↓
+Procedural programming
+    ↓
+Files + error handling
+    ↓
+OOP
+    ↓
+Beginner Python project
+
+Days 61–120
+Developer environment
+    ↓
+Git/GitHub
+    ↓
+CSV / Excel / JSON / APIs
+    ↓
+NumPy
+    ↓
+Pandas + preprocessing
+    ↓
+Visualization + EDA
+    ↓
+Databases
+    ↓
+Math + statistics
+    ↓
+ML foundations
+    ↓
+Supervised ML
+    ↓
+Model evaluation
+    ↓
+Unsupervised ML
+    ↓
+RL introduction
+    ↓
+Scikit-learn practical workflow
+    ↓
+FastAPI
+    ↓
+Simple ML prediction API
+```
+
+The important continuity is that **Day 120 is still intentionally beginner-sized**, just as Day 60 was. Day 60 itself combines familiar concepts into a deliberately small bank application rather than suddenly demanding a production application. 
+
+This makes Days 61–120 a genuine **second foundation layer**: the learner progresses from “I can program in Python” to “I understand the basic workflow for data, databases, ML, and exposing a simple model through an API,” without prematurely entering deep learning, LLMs, MLOps, distributed systems, or production AI architecture.
+
